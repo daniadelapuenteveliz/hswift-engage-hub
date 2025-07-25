@@ -1,73 +1,183 @@
-# Welcome to your Lovable project
+# HSwift - Conversational Bot Management Platform
 
-## Project info
+HSwift is a professional multi-tenant platform for managing conversational bots, with a focus on WhatsApp integration. Built with React, TypeScript, and modern UI components.
 
-**URL**: https://lovable.dev/projects/e34b11da-c6ac-4b9e-8366-3e94b4e87bd7
+## 🚀 Features
 
-## How can I edit this code?
+### Core Functionality
+- **Multi-tenant Architecture**: Manage multiple clients and their bots
+- **User Management**: Role-based access control with custom roles
+- **Conversational Bot Management**: Create and manage WhatsApp bots
+- **Real-time Conversations**: Trello-style board for conversation management
+- **Analytics Dashboard**: Comprehensive metrics and insights
+- **Membership System**: Free, Pro, and Premium tiers
 
-There are several ways of editing your application.
+### Key Pages
+- **Dashboard**: Overview of metrics, recent conversations, and quick actions
+- **Tenants**: Manage clients and their phone numbers
+- **Conversations**: Kanban-style board for conversation monitoring
+- **Templates & Prompts**: Message template management (coming soon)
+- **Users & Roles**: User management with custom roles (coming soon)
+- **Analytics**: Detailed insights and reporting (coming soon)
+- **Membership**: Subscription management (coming soon)
 
-**Use Lovable**
+## 🛠️ Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e34b11da-c6ac-4b9e-8366-3e94b4e87bd7) and start prompting.
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui
+- **Routing**: React Router v6
+- **State Management**: React Context API
+- **Icons**: Lucide React
+- **Form Handling**: React Hook Form with Zod validation
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🎨 Design System
 
-**Use your preferred IDE**
+HSwift uses a professional design system with:
+- **Colors**: Deep blues and purples for a professional look
+- **Typography**: Clean, modern font hierarchy
+- **Components**: Consistent, reusable UI components
+- **Responsive**: Mobile-first design approach
+- **Animations**: Smooth transitions and hover effects
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js 18+ and npm
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone the repository**
+   ```bash
+   git clone <your-git-url>
+   cd hswift-platform
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+4. **Open your browser**
+   Navigate to `http://localhost:8080`
+
+### Demo Login
+Use these credentials to access the platform:
+- **Username**: `usuario`
+- **Password**: `pass`
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── layout/         # Layout components (Sidebar, AppLayout)
+│   └── ui/             # shadcn/ui components
+├── contexts/           # React contexts (Auth, etc.)
+├── data/              # Mock data and types
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions
+├── pages/             # Main application pages
+└── App.tsx            # Main application component
 ```
 
-**Edit a file directly in GitHub**
+### Key Files
+- `src/data/mockData.ts` - Mock data for development
+- `src/contexts/AuthContext.tsx` - Authentication management
+- `src/components/layout/AppSidebar.tsx` - Main navigation
+- `src/index.css` - Design system tokens and global styles
+- `tailwind.config.ts` - Tailwind configuration
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Development
 
-**Use GitHub Codespaces**
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Mock Data
+The application currently uses mock data stored in `src/data/mockData.ts`. This simulates a REST API and includes:
+- User authentication
+- Tenant management
+- Conversation data
+- Analytics metrics
 
-## What technologies are used for this project?
+### Adding New Features
+1. Create new components in `src/components/`
+2. Add new pages in `src/pages/`
+3. Update routing in `src/App.tsx`
+4. Extend mock data in `src/data/mockData.ts`
 
-This project is built with:
+## 🎯 Future Enhancements
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Backend Integration
+- Replace mock data with REST API calls
+- Add proper authentication with JWT
+- Implement real-time features with WebSockets
 
-## How can I deploy this project?
+### Features to Implement
+- Template editor with visual flow builder
+- Advanced analytics with charts
+- Real WhatsApp API integration
+- Payment processing
+- Multi-language support
 
-Simply open [Lovable](https://lovable.dev/projects/e34b11da-c6ac-4b9e-8366-3e94b4e87bd7) and click on Share -> Publish.
+### Technical Improvements
+- Add proper error boundaries
+- Implement data caching with React Query
+- Add comprehensive testing
+- Performance optimizations
 
-## Can I connect a custom domain to my Lovable project?
+## 🔒 Authentication
 
-Yes, you can!
+The platform includes a mock authentication system:
+- Username/password login
+- Protected routes
+- User session management
+- Role-based access control (foundation)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📱 Responsive Design
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+HSwift is designed mobile-first with:
+- Responsive sidebar that collapses on mobile
+- Touch-friendly interface elements
+- Optimized layouts for all screen sizes
+- Progressive web app capabilities
+
+## 🎨 Customization
+
+### Design System
+The design system is fully customizable through:
+- `src/index.css` - CSS custom properties for colors, spacing, etc.
+- `tailwind.config.ts` - Tailwind theme configuration
+- Component variants in shadcn/ui components
+
+### Theming
+Colors and styles are defined as semantic tokens:
+- Primary colors for brand identity
+- Semantic colors for status and feedback
+- Consistent spacing and typography scales
+
+## 📄 License
+
+This project is part of a demo/portfolio application. Please refer to your organization's licensing requirements.
+
+## 🤝 Contributing
+
+This is a demonstration project. For production use, consider:
+- Adding comprehensive testing
+- Implementing proper error handling
+- Adding accessibility features
+- Performance optimization
+- Security hardening
+
+---
+
+Built with ❤️ using React, TypeScript, and modern web technologies.
