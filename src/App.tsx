@@ -10,7 +10,16 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Tenants from "./pages/Tenants";
 import Conversations from "./pages/Conversations";
+import Templates from "./pages/Templates";
 import NotFound from "./pages/NotFound";
+import AgentManagement from "./pages/AgentManagement";
+import ApisAndTools from "./pages/ApisAndTools";
+import Membership from "./pages/Membership";
+import UsersAndRoles from "./pages/UsersAndRoles";
+import BoeIntegrationDetail from "./pages/BoeIntegrationDetail";
+import ToolSetConfiguration from "./pages/ToolSetConfiguration";
+import AgentConfiguration from "./pages/AgentConfiguration";
+import Analytics from "./pages/Analytics";
 
 const queryClient = new QueryClient();
 
