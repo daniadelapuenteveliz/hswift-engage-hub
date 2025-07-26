@@ -2,8 +2,16 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { useAuth } from "react-oidc-context";
 import { Button } from "@/components/ui/button";
-import { LogOut, User } from "lucide-react";
+import { LogOut, User, ChevronsUpDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { mockTenants } from "@/data/mockData";
+import { useState } from "react";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -11,7 +19,7 @@ interface AppLayoutProps {
 
 export function AppLayout({ children }: AppLayoutProps) {
   const { user, signoutRedirect } = useAuth();
-
+  
   return (
     <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full bg-background">
@@ -25,6 +33,21 @@ export function AppLayout({ children }: AppLayoutProps) {
               <div className="text-lg font-semibold text-foreground">
                 HSwift Platform
               </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="flex items-center gap-2">
+                    {selectedTenant.name}
+                    <ChevronsUpDown className="w-4 h-4 text-muted-foreground" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {mockTenants.map((tenant) => (
+                    <DropdownMenuItem key={tenant.id} onSelect={() => setSelectedTenant(tenant)}>
+                      {tenant.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
             
             <div className="flex items-center gap-4">

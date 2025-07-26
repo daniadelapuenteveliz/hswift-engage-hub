@@ -7,7 +7,9 @@ import {
   Crown,
   Settings,
   FileText,
-  Phone
+  Phone,
+  Bot,
+  Wrench
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import {
@@ -28,6 +30,8 @@ const navigationItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
   { title: "Tenants", url: "/tenants", icon: Building2 },
   { title: "Templates", url: "/templates", icon: FileText },
+  { title: "Agent Management", url: "/agent-management", icon: Bot },
+  { title: "APIs & Tools", url: "/apis-and-tools", icon: Wrench },
   { title: "Conversations", url: "/conversations", icon: MessageSquare },
   { title: "Users & Roles", url: "/users", icon: Users },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
