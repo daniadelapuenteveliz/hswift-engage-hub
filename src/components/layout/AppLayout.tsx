@@ -1,6 +1,6 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "react-oidc-context";
 import { Button } from "@/components/ui/button";
 import { LogOut, User, ChevronsUpDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -18,9 +18,8 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
-  const { user, logout } = useAuth();
-  const [selectedTenant, setSelectedTenant] = useState(mockTenants[0]);
-
+  const { user, signoutRedirect } = useAuth();
+  
   return (
     <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full bg-background">
@@ -56,15 +55,12 @@ export function AppLayout({ children }: AppLayoutProps) {
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2">
                     <User className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-foreground">{user.username}</span>
-                    <Badge variant="secondary" className="text-xs">
-                      {user.membership}
-                    </Badge>
+                    <span className="text-sm font-medium text-foreground">{user.profile.name}</span>
                   </div>
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={logout}
+                    onClick={() => signoutRedirect()}
                     className="flex items-center gap-2"
                   >
                     <LogOut className="w-4 h-4" />
