@@ -10,7 +10,16 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Tenants from "./pages/Tenants";
 import Conversations from "./pages/Conversations";
+import Templates from "./pages/Templates";
 import NotFound from "./pages/NotFound";
+import AgentManagement from "./pages/AgentManagement";
+import ApisAndTools from "./pages/ApisAndTools";
+import Membership from "./pages/Membership";
+import UsersAndRoles from "./pages/UsersAndRoles";
+import BoeIntegrationDetail from "./pages/BoeIntegrationDetail";
+import ToolSetConfiguration from "./pages/ToolSetConfiguration";
+import AgentConfiguration from "./pages/AgentConfiguration";
+import Analytics from "./pages/Analytics";
 
 const queryClient = new QueryClient();
 
@@ -63,34 +72,47 @@ const App = () => (
             } />
             <Route path="/templates" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Templates & Prompts</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Templates />
+              </ProtectedRoute>
+            } />
+            <Route path="/agent-management" element={
+              <ProtectedRoute>
+                <AgentManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="/apis-and-tools" element={
+              <ProtectedRoute>
+                <ApisAndTools />
+              </ProtectedRoute>
+            } />
+            <Route path="/apis-and-tools/api/:integrationName" element={
+              <ProtectedRoute>
+                <BoeIntegrationDetail />
+              </ProtectedRoute>
+            } />
+            <Route path="/tools/:toolSetName" element={
+              <ProtectedRoute>
+                <ToolSetConfiguration />
               </ProtectedRoute>
             } />
             <Route path="/users" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Users & Roles</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <UsersAndRoles />
+              </ProtectedRoute>
+            } />
+            <Route path="/agent/:agentName/configure" element={
+              <ProtectedRoute>
+                <AgentConfiguration />
               </ProtectedRoute>
             } />
             <Route path="/analytics" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Analytics</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Analytics />
               </ProtectedRoute>
             } />
             <Route path="/membership" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Membership</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Membership />
               </ProtectedRoute>
             } />
             <Route path="*" element={<NotFound />} />

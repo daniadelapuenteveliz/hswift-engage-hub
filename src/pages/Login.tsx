@@ -62,7 +62,7 @@ const Login = () => {
           <div>
             <h1 className="text-3xl font-bold text-foreground">Welcome to HSwift</h1>
             <p className="text-muted-foreground mt-2">
-              Advanced conversational bot management platform
+              Advanced conversational agent management platform
             </p>
           </div>
         </div>
@@ -130,7 +130,7 @@ const Login = () => {
         </Card>
 
         <div className="text-center text-sm text-muted-foreground">
-          Professional conversational bot management for modern businesses
+          Professional conversational agent management for modern businesses
         </div>
       </div>
     </div>

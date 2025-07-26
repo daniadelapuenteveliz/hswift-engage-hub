@@ -83,8 +83,8 @@ export const mockUsers: User[] = [
 export const mockTenants: Tenant[] = [
   {
     id: '1',
-    name: 'E-commerce Solutions',
-    description: 'Customer support for online retail',
+    name: 'Boe',
+    description: 'Medical distribution',
     phoneNumbers: [
       {
         id: '1',
@@ -116,8 +116,8 @@ export const mockTenants: Tenant[] = [
   },
   {
     id: '2',
-    name: 'Healthcare Assistant',
-    description: 'Medical appointment scheduling and support',
+    name: 'Sodtrack',
+    description: 'In place work manager',
     phoneNumbers: [
       {
         id: '2',
@@ -150,7 +150,7 @@ export const mockConversations: Conversation[] = [
     status: 'waiting',
     lastMessage: 'I need help with my order',
     lastActivity: '2 minutes ago',
-    currentAgent: 'Order Support Bot',
+    currentAgent: 'Order Support Agent',
     messages: 3,
     tenantId: '1',
     phoneNumberId: '1'
@@ -162,7 +162,7 @@ export const mockConversations: Conversation[] = [
     status: 'bot_responding',
     lastMessage: 'What are your business hours?',
     lastActivity: '5 minutes ago',
-    currentAgent: 'FAQ Bot',
+    currentAgent: 'FAQ Agent',
     messages: 2,
     tenantId: '1',
     phoneNumberId: '1'
