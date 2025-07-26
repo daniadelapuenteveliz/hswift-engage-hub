@@ -1,13 +1,13 @@
-# HSwift - Conversational Bot Management Platform
+# HSwift - Conversational Agent Management Platform
 
-HSwift is a professional multi-tenant platform for managing conversational bots, with a focus on WhatsApp integration. Built with React, TypeScript, and modern UI components.
+HSwift is a professional multi-tenant platform for managing conversational agents, with a focus on WhatsApp integration. Built with React, TypeScript, and modern UI components.
 
 ## 🚀 Features
 
 ### Core Functionality
-- **Multi-tenant Architecture**: Manage multiple clients and their bots
+- **Multi-tenant Architecture**: Manage multiple clients and their agents
 - **User Management**: Role-based access control with custom roles
-- **Conversational Bot Management**: Create and manage WhatsApp bots
+- **Conversational Agent Management**: Create and manage WhatsApp agents
 - **Real-time Conversations**: Trello-style board for conversation management
 - **Analytics Dashboard**: Comprehensive metrics and insights
 - **Membership System**: Free, Pro, and Premium tiers
@@ -65,7 +65,12 @@ HSwift uses a professional design system with:
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:8080`
+
+### Demo Login
+Use these credentials to access the platform:
+- **Username**: `usuario`
+- **Password**: `pass`
 
 ## 📁 Project Structure
 
