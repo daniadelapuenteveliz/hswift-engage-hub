@@ -48,7 +48,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-              <Toaster />
+        <Toaster />
         <Sonner />
         <BrowserRouter>
           <Routes>
@@ -71,34 +71,47 @@ const App = () => (
             } />
             <Route path="/templates" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Templates & Prompts</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Templates />
+              </ProtectedRoute>
+            } />
+            <Route path="/agent-management" element={
+              <ProtectedRoute>
+                <AgentManagement />
+              </ProtectedRoute>
+            } />
+            <Route path="/apis-and-tools" element={
+              <ProtectedRoute>
+                <ApisAndTools />
+              </ProtectedRoute>
+            } />
+            <Route path="/apis-and-tools/api/:integrationName" element={
+              <ProtectedRoute>
+                <BoeIntegrationDetail />
+              </ProtectedRoute>
+            } />
+            <Route path="/tools/:toolSetName" element={
+              <ProtectedRoute>
+                <ToolSetConfiguration />
               </ProtectedRoute>
             } />
             <Route path="/users" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Users & Roles</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <UsersAndRoles />
+              </ProtectedRoute>
+            } />
+            <Route path="/agent/:agentName/configure" element={
+              <ProtectedRoute>
+                <AgentConfiguration />
               </ProtectedRoute>
             } />
             <Route path="/analytics" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Analytics</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Analytics />
               </ProtectedRoute>
             } />
             <Route path="/membership" element={
               <ProtectedRoute>
-                <div className="p-6">
-                  <h1 className="text-3xl font-bold">Membership</h1>
-                  <p className="text-muted-foreground mt-2">Coming soon...</p>
-                </div>
+                <Membership />
               </ProtectedRoute>
             } />
             <Route path="*" element={<NotFound />} />
