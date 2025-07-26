@@ -65,7 +65,12 @@ HSwift uses a professional design system with:
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:8080`
+
+### Demo Login
+Use these credentials to access the platform:
+- **Username**: `usuario`
+- **Password**: `pass`
 
 ## 📁 Project Structure
 
