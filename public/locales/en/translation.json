@@ -65,21 +65,38 @@
           "name": "Free",
           "price": "$0",
           "description": "Perfect for small businesses getting started",
-          "features": ["1 tenant", "2 phone numbers", "Basic analytics", "Community support"],
+          "features": [
+            "1 tenant",
+            "2 phone numbers",
+            "Basic analytics",
+            "Community support"
+          ],
           "popular": false
         },
         {
           "name": "Pro",
           "price": "$49",
           "description": "Advanced features for growing businesses",
-          "features": ["5 tenants", "Unlimited phone numbers", "Advanced analytics", "Priority support", "Custom templates"],
+          "features": [
+            "5 tenants",
+            "Unlimited phone numbers",
+            "Advanced analytics",
+            "Priority support",
+            "Custom templates"
+          ],
           "popular": true
         },
         {
           "name": "Premium",
           "price": "$99",
           "description": "Enterprise-grade solution for large organizations",
-          "features": ["Unlimited tenants", "White-label solution", "Custom integrations", "24/7 support", "SLA guarantee"],
+          "features": [
+            "Unlimited tenants",
+            "White-label solution",
+            "Custom integrations",
+            "24/7 support",
+            "SLA guarantee"
+          ],
           "popular": false
         }
       ]
@@ -451,6 +468,18 @@
     }
   },
   "tenants": {
+    "create": {
+      "button": "Create tenant",
+      "dialog": {
+        "title": "Create new tenant",
+        "nameLabel": "Tenant name",
+        "namePlaceholder": "Enter tenant name",
+        "descriptionLabel": "Description",
+        "descriptionPlaceholder": "Short description of the tenant",
+        "cancel": "Cancel",
+        "create": "Create tenant"
+      }
+    },
     "header": {
       "title": "Tenants",
       "subtitle": "Manage your tenants and their configurations.",

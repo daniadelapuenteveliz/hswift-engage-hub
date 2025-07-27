@@ -65,21 +65,38 @@
           "name": "Kostenlos",
           "price": "$0",
           "description": "Perfekt für kleine Unternehmen, die gerade anfangen",
-          "features": ["1 Mandant", "2 Telefonnummern", "Grundlegende Analysen", "Community-Support"],
+          "features": [
+            "1 Mandant",
+            "2 Telefonnummern",
+            "Grundlegende Analysen",
+            "Community-Support"
+          ],
           "popular": false
         },
         {
           "name": "Pro",
           "price": "$49",
           "description": "Erweiterte Funktionen für wachsende Unternehmen",
-          "features": ["5 Mandanten", "Unbegrenzte Telefonnummern", "Erweiterte Analysen", "Priorisierter Support", "Benutzerdefinierte Vorlagen"],
+          "features": [
+            "5 Mandanten",
+            "Unbegrenzte Telefonnummern",
+            "Erweiterte Analysen",
+            "Priorisierter Support",
+            "Benutzerdefinierte Vorlagen"
+          ],
           "popular": true
         },
         {
           "name": "Premium",
           "price": "$99",
           "description": "Unternehmenslösung für große Organisationen",
-          "features": ["Unbegrenzte Mandanten", "White-Label-Lösung", "Benutzerdefinierte Integrationen", "24/7-Support", "SLA-Garantie"],
+          "features": [
+            "Unbegrenzte Mandanten",
+            "White-Label-Lösung",
+            "Benutzerdefinierte Integrationen",
+            "24/7-Support",
+            "SLA-Garantie"
+          ],
           "popular": false
         }
       ]
