@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Bot, MessageSquareText, BarChart3, Sparkles } from 'lucide-react';
 
 import BotAnalytics from '@/components/features/analytics/BotAnalytics';
@@ -8,15 +9,19 @@ import AssistantAnalytics from '@/components/features/analytics/AssistantAnalyti
 
 type View = 'bots' | 'templates' | 'general' | 'assistant';
 
-const menuItems: { id: View; label: string; icon: React.ElementType }[] = [
-  { id: 'bots', label: 'Bots', icon: Bot },
-  { id: 'templates', label: 'Templates', icon: MessageSquareText },
-  { id: 'general', label: 'General', icon: BarChart3 },
-  { id: 'assistant', label: 'AI Assistant', icon: Sparkles },
-];
+
+
 
 const Analytics = () => {
+  const { t } = useTranslation();
   const [activeView, setActiveView] = useState<View>('bots');
+
+  const menuItems: { id: View; label: string; icon: React.ElementType }[] = [
+    { id: 'bots', label: t('analytics.nav.bots'), icon: Bot },
+    { id: 'templates', label: t('analytics.nav.templates'), icon: MessageSquareText },
+    { id: 'general', label: t('analytics.nav.general'), icon: BarChart3 },
+    { id: 'assistant', label: t('analytics.nav.assistant'), icon: Sparkles },
+  ];
 
   const renderContent = () => {
     switch (activeView) {
@@ -37,7 +42,7 @@ const Analytics = () => {
     <div className="flex h-full bg-background">
       {/* Sidebar */}
       <aside className="w-64 flex flex-col border-r bg-slate-50/50 dark:bg-slate-900/50 p-4">
-        <h2 className="text-lg font-semibold mb-6 px-2">Analytics</h2>
+        <h2 className="text-lg font-semibold mb-6 px-2">{t('analytics.title')}</h2>
         <nav className="flex flex-col gap-2">
           {menuItems.map(item => (
             <button

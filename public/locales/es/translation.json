@@ -147,6 +147,237 @@
       "description": "Conversaciones ilimitadas y analíticas avanzadas"
     }
   },
+  "usersAndRoles": {
+    "title": "Usuarios y Roles",
+    "description": "Gestiona quién tiene acceso a tu plataforma y qué pueden hacer.",
+    "tabs": {
+      "users": "Usuarios",
+      "roles": "Roles y Permisos"
+    },
+    "users": {
+      "searchPlaceholder": "Buscar por nombre o email...",
+      "createUser": "Crear Usuario",
+      "userColumn": "Usuario",
+      "roleColumn": "Rol",
+      "userTypeColumn": "Tipo de Usuario",
+      "actionsColumn": "Acciones",
+      "editUser": "Editar Usuario",
+      "deleteUser": "Eliminar Usuario",
+      "types": {
+        "human": "Humano",
+        "agent": "Agente",
+        "system": "Sistema"
+      }
+    },
+    "roles": {
+      "title": "Roles",
+      "searchPlaceholder": "Buscar roles...",
+      "createRole": "Crear Rol",
+      "permissionsFor": "Permisos para {{role}}",
+      "permissionsDescription": "Define qué pueden acceder y hacer los usuarios con este rol.",
+      "roleNames": {
+        "admin": "Administrador",
+        "editor": "Editor",
+        "agent": "Agente",
+        "viewer": "Observador",
+        "system": "Sistema"
+      },
+      "roleDescriptions": {
+        "admin": "Acceso completo a todas las funciones y configuraciones.",
+        "editor": "Puede crear y gestionar plantillas y agentes.",
+        "agent": "Interactúa con conversaciones, acceso limitado.",
+        "viewer": "Acceso de solo lectura a paneles y analíticas.",
+        "system": "Procesos internos del sistema."
+      }
+    },
+    "permissions": {
+      "template_management": {
+        "label": "Gestión de Plantillas",
+        "create": "Crear Plantillas",
+        "edit": "Editar Plantillas",
+        "delete": "Eliminar Plantillas",
+        "view": "Ver Plantillas"
+      },
+      "user_management": {
+        "label": "Gestión de Usuarios",
+        "create": "Crear Usuarios",
+        "edit": "Editar Roles",
+        "delete": "Eliminar Usuarios",
+        "view": "Ver Usuarios y Roles"
+      },
+      "billing": {
+        "label": "Facturación",
+        "permissions": {
+          "view": "Ver Facturación",
+          "manage": "Gestionar Facturación"
+        }
+      }
+    }
+  },
+  "conversations": {
+    "title": "Conversaciones",
+    "description": "Monitorea y gestiona todas las conversaciones con clientes",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "searchPlaceholder": "Buscar conversaciones...",
+    "tabs": {
+      "threads": "Hilos",
+      "board": "Tablero"
+    },
+    "board": {
+      "columns": {
+        "waiting": "En espera",
+        "bot_responding": "Bot respondiendo",
+        "escalated": "Escalado",
+        "resolved": "Resuelto"
+      },
+      "noConversations": "No hay conversaciones"
+    },
+    "card": {
+      "messagesSuffix": "msjs"
+    },
+    "details": {
+      "title": "Detalles de la Conversación"
+    }
+  },
+  "apisAndTools": {
+    "header": {
+      "title": "Conecta, Automatiza, Triunfa.",
+      "description": "Integra tus herramientas favoritas en minutos y crea flujos de trabajo sin esfuerzo. Desde notificaciones en Slack hasta APIs personalizadas, HSwift es tu centro de comando.",
+      "howItWorks": "¿Cómo funciona?",
+      "step1": "<b>Conecta con un clic:</b> Elige de nuestra creciente lista de aplicaciones y autoriza la conexión. ¡Así de fácil!",
+      "step2": "<b>Crea tu propia API:</b> Define tus propios endpoints como en Postman para construir integraciones a medida. Sin límites."
+    },
+    "integrations": {
+      "title": "Integraciones Disponibles",
+      "connectNewTool": "Conectar Nueva Herramienta",
+      "status": {
+        "connected": "Conectado",
+        "available": "Disponible"
+      },
+      "buttons": {
+        "manage": "Administrar",
+        "connect": "Conectar"
+      },
+      "items": {
+        "boe": {
+          "name": "Integración Boe",
+          "description": "API personalizada para operaciones internas y flujos de trabajo automatizados.",
+          "stats": {
+            "endpoints": "Endpoints",
+            "failureRate": "Tasa de Fallo",
+            "uptime": "Uptime"
+          }
+        },
+        "slack": {
+          "name": "Slack",
+          "description": "Envía notificaciones y alertas directamente a los canales de tu equipo.",
+          "stats": {
+            "workspaces": "Workspaces",
+            "activeChannels": "Canales Activos"
+          }
+        },
+        "zendesk": {
+          "name": "Zendesk",
+          "description": "Sincroniza conversaciones y tickets con tu plataforma de soporte al cliente."
+        }
+      }
+    },
+    "toolSets": {
+      "title": "Conjuntos de Herramientas",
+      "description": "Paquetes pre-construidos de herramientas para mejorar las capacidades de tus agentes.",
+      "status": {
+        "installed": "Instalado",
+        "available": "Disponible"
+      },
+      "buttons": {
+        "configure": "Configurar",
+        "install": "Instalar"
+      },
+      "items": {
+        "boe": {
+          "name": "Herramientas Boe",
+          "description": "Una colección de herramientas para interactuar con la API de Boe, incluyendo gestión de usuarios y procesamiento de pedidos."
+        },
+        "search": {
+          "name": "Herramienta de Búsqueda en Internet",
+          "description": "Una potente herramienta para realizar búsquedas web y obtener información actualizada de internet."
+        }
+      }
+    }
+  },
+  "agentManagement": {
+    "header": {
+      "title": "Gestión de Agentes",
+      "description": "Crea, configura y gestiona tus agentes de IA.",
+      "createAgent": "Crear Agente"
+    },
+    "searchPlaceholder": "Buscar agentes...",
+    "agentType": "Agente de IA",
+    "buttons": {
+      "configure": "Configurar"
+    },
+    "agents": {
+      "hermes": {
+        "description": "Hola, soy Hermes, encargado de la mensajería y de asegurar que tus comunicaciones fluyan sin interrupciones."
+      },
+      "boet": {
+        "description": "Soy Boet, tu especialista en ventas. Mi objetivo es identificar oportunidades y cerrar tratos de manera eficiente."
+      },
+      "maui": {
+        "description": "¡De nada! Soy Maui, semidiós del viento y el mar, listo para realizar hazañas increíbles por ti."
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analíticas",
+    "nav": {
+      "bots": "Bots",
+      "templates": "Plantillas",
+      "general": "General",
+      "assistant": "Asistente de IA"
+    },
+    "bots": {
+      "title": "Analíticas del Agente",
+      "selectAgent": "Seleccionar un Agente",
+      "executions": "Ejecuciones:",
+      "conversion": "Conversión:"
+    },
+    "templates": {
+      "title": "Analíticas de Plantillas",
+      "description": "Métricas de rendimiento para tus plantillas de mensajes.",
+      "templateName": "Nombre de la Plantilla",
+      "category": "Categoría",
+      "sent": "Enviados",
+      "opened": "Abiertos",
+      "clicks": "Clics",
+      "conversion": "Conversión",
+      "categories": {
+        "welcome": "Bienvenida",
+        "sales": "Ventas",
+        "announcements": "Anuncios",
+        "support": "Soporte",
+        "marketing": "Marketing"
+      }
+    },
+    "general": {
+      "totalUsers": "Usuarios Totales",
+      "fromLastMonth": "% desde el mes pasado",
+      "messagesSent": "Mensajes Enviados",
+      "avgConversion": "Conversión Promedio",
+      "userGrowth": "Crecimiento de Usuarios",
+      "userGrowthDescription": "Tendencia de usuarios activos mensuales.",
+      "messageVolume": "Volumen de Mensajes",
+      "messageVolumeDescription": "Total de mensajes enviados por mes.",
+      "templateCategories": "Categorías de Plantillas",
+      "templateCategoriesDescription": "Distribución de plantillas por categoría."
+    },
+    "assistant": {
+      "title": "Asistente de IA",
+      "description": "Pregúntame cualquier cosa sobre tus analíticas y encontraré la respuesta para ti.",
+      "placeholder": "Pregunta por estadísticas de tu negocio, como '¿cuál fue la tasa de conversión en mayo?'"
+    }
+  },
   "membership": {
     "title": "Membresía y Facturación",
     "subtitle": "Gestiona tu suscripción, ve facturas y sigue tu uso.",
@@ -196,6 +427,38 @@
     "april": "Abril",
     "may": "Mayo",
     "june": "Junio"
+  },
+  "templates": {
+    "title": "Plantillas",
+    "search": "Buscar plantillas...",
+    "create": "Crear Plantilla",
+    "preview": "Previsualizar",
+    "edit": "Editar",
+    "duplicate": "Duplicar",
+    "viewStats": "Ver Estadísticas",
+    "archive": "Archivar",
+    "usersReached": "Usuarios Alcanzados",
+    "language": "Idioma",
+    "editor": {
+      "title": "Editar Plantilla",
+      "description": "Realiza cambios en tu plantilla aquí. Haz clic en guardar cuando hayas terminado.",
+      "name": "Nombre de la Plantilla",
+      "category": "Categoría",
+      "selectCategory": "Seleccionar categoría",
+      "categories": {
+        "marketing": "Marketing",
+        "utility": "Utilidad",
+        "authentication": "Autenticación"
+      },
+      "selectLanguage": "Seleccionar idioma",
+      "contentEditorPreview": "Editor de Contenido y Previsualización",
+      "contentPlaceholder": "Ingresa el mensaje de tu plantilla aquí... Usa {{param}} para variables.",
+      "testParameters": "Parámetros de Prueba",
+      "testParametersDescription": "Completa los campos a continuación para verlos en la previsualización en vivo.",
+      "testParametersExample": "Ejemplo: Juan Pérez",
+      "cancel": "Cancelar",
+      "save": "Guardar Cambios"
+    }
   },
   "tenants": {
     "header": {

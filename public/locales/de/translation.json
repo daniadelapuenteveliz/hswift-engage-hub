@@ -147,6 +147,237 @@
       "description": "Unbegrenzte Gespräche und erweiterte Analysen"
     }
   },
+  "usersAndRoles": {
+    "title": "Benutzer & Rollen",
+    "description": "Verwalten Sie, wer auf Ihre Plattform zugreifen kann und was sie tun können.",
+    "tabs": {
+      "users": "Benutzer",
+      "roles": "Rollen & Berechtigungen"
+    },
+    "users": {
+      "searchPlaceholder": "Suche nach Name oder E-Mail...",
+      "createUser": "Benutzer erstellen",
+      "userColumn": "Benutzer",
+      "roleColumn": "Rolle",
+      "userTypeColumn": "Benutzertyp",
+      "actionsColumn": "Aktionen",
+      "editUser": "Benutzer bearbeiten",
+      "deleteUser": "Benutzer löschen",
+      "types": {
+        "human": "Mensch",
+        "agent": "Agent",
+        "system": "System"
+      }
+    },
+    "roles": {
+      "title": "Rollen",
+      "searchPlaceholder": "Rollen suchen...",
+      "createRole": "Rolle erstellen",
+      "permissionsFor": "Berechtigungen für {{role}}",
+      "permissionsDescription": "Definieren Sie, worauf Benutzer mit dieser Rolle zugreifen und was sie tun können.",
+      "roleNames": {
+        "admin": "Admin",
+        "editor": "Editor",
+        "agent": "Agent",
+        "viewer": "Betrachter",
+        "system": "System"
+      },
+      "roleDescriptions": {
+        "admin": "Voller Zugriff auf alle Funktionen und Einstellungen.",
+        "editor": "Kann Vorlagen und Agenten erstellen und verwalten.",
+        "agent": "Interagiert mit Konversationen, eingeschränkter Zugriff.",
+        "viewer": "Nur-Lese-Zugriff auf Dashboards und Analysen.",
+        "system": "Interne Systemprozesse."
+      }
+    },
+    "permissions": {
+      "template_management": {
+        "label": "Vorlagenverwaltung",
+        "create": "Vorlagen erstellen",
+        "edit": "Vorlagen bearbeiten",
+        "delete": "Vorlagen löschen",
+        "view": "Vorlagen anzeigen"
+      },
+      "user_management": {
+        "label": "Benutzerverwaltung",
+        "create": "Benutzer erstellen",
+        "edit": "Rollen bearbeiten",
+        "delete": "Benutzer löschen",
+        "view": "Benutzer & Rollen anzeigen"
+      },
+      "billing": {
+        "label": "Abrechnung",
+        "permissions": {
+          "view": "Abrechnung anzeigen",
+          "manage": "Abrechnung verwalten"
+        }
+      }
+    }
+  },
+  "conversations": {
+    "title": "Gespräche",
+    "description": "Überwachen und verwalten Sie alle Kundengespräche",
+    "filter": "Filter",
+    "export": "Exportieren",
+    "searchPlaceholder": "Gespräche suchen...",
+    "tabs": {
+      "threads": "Threads",
+      "board": "Board"
+    },
+    "board": {
+      "columns": {
+        "waiting": "Wartend",
+        "bot_responding": "Bot antwortet",
+        "escalated": "Eskaliert",
+        "resolved": "Gelöst"
+      },
+      "noConversations": "Keine Gespräche"
+    },
+    "card": {
+      "messagesSuffix": "Nachr."
+    },
+    "details": {
+      "title": "Gesprächsdetails"
+    }
+  },
+  "apisAndTools": {
+    "header": {
+      "title": "Verbinden, Automatisieren, Erfolg haben.",
+      "description": "Integrieren Sie Ihre Lieblingstools in Minuten und erstellen Sie mühelose Arbeitsabläufe. Von Slack-Benachrichtigungen bis hin zu benutzerdefinierten APIs ist HSwift Ihre Kommandozentrale.",
+      "howItWorks": "Wie funktioniert es?",
+      "step1": "<b>Ein-Klick-Verbindung:</b> Wählen Sie aus unserer wachsenden Liste von Apps und autorisieren Sie die Verbindung. So einfach ist das!",
+      "step2": "<b>Eigene API erstellen:</b> Definieren Sie Ihre eigenen Endpunkte wie in Postman, um benutzerdefinierte Integrationen zu erstellen. Ohne Grenzen."
+    },
+    "integrations": {
+      "title": "Verfügbare Integrationen",
+      "connectNewTool": "Neues Tool verbinden",
+      "status": {
+        "connected": "Verbunden",
+        "available": "Verfügbar"
+      },
+      "buttons": {
+        "manage": "Verwalten",
+        "connect": "Verbinden"
+      },
+      "items": {
+        "boe": {
+          "name": "Boe-Integration",
+          "description": "Benutzerdefinierte API für interne Abläufe und automatisierte Workflows.",
+          "stats": {
+            "endpoints": "Endpunkte",
+            "failureRate": "Fehlerrate",
+            "uptime": "Verfügbarkeit"
+          }
+        },
+        "slack": {
+          "name": "Slack",
+          "description": "Senden Sie Benachrichtigungen und Warnungen direkt an die Kanäle Ihres Teams.",
+          "stats": {
+            "workspaces": "Arbeitsbereiche",
+            "activeChannels": "Aktive Kanäle"
+          }
+        },
+        "zendesk": {
+          "name": "Zendesk",
+          "description": "Synchronisieren Sie Gespräche und Tickets mit Ihrer Kundensupport-Plattform."
+        }
+      }
+    },
+    "toolSets": {
+      "title": "Tool-Sets",
+      "description": "Vorgefertigte Pakete von Tools zur Verbesserung der Fähigkeiten Ihrer Agenten.",
+      "status": {
+        "installed": "Installiert",
+        "available": "Verfügbar"
+      },
+      "buttons": {
+        "configure": "Konfigurieren",
+        "install": "Installieren"
+      },
+      "items": {
+        "boe": {
+          "name": "Boe-Tools",
+          "description": "Eine Sammlung von Tools zur Interaktion mit der Boe-API, einschließlich Benutzerverwaltung und Auftragsabwicklung."
+        },
+        "search": {
+          "name": "Internet-Suchwerkzeug",
+          "description": "Ein leistungsstarkes Werkzeug zur Durchführung von Websuchen und zum Abrufen aktueller Informationen aus dem Internet."
+        }
+      }
+    }
+  },
+  "agentManagement": {
+    "header": {
+      "title": "Agentenverwaltung",
+      "description": "Erstellen, konfigurieren und verwalten Sie Ihre KI-Agenten.",
+      "createAgent": "Agent erstellen"
+    },
+    "searchPlaceholder": "Agenten suchen...",
+    "agentType": "KI-Agent",
+    "buttons": {
+      "configure": "Konfigurieren"
+    },
+    "agents": {
+      "hermes": {
+        "description": "Hallo, ich bin Hermes, verantwortlich für den Nachrichtenverkehr und stelle sicher, dass Ihre Kommunikation reibungslos verläuft."
+      },
+      "boet": {
+        "description": "Ich bin Boet, Ihr Verkaufsspezialist. Mein Ziel ist es, Chancen zu erkennen und Geschäfte effizient abzuschließen."
+      },
+      "maui": {
+        "description": "Gern geschehen! Ich bin Maui, Halbgott des Windes und des Meeres, bereit, unglaubliche Heldentaten für dich zu vollbringen."
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analytik",
+    "nav": {
+      "bots": "Bots",
+      "templates": "Vorlagen",
+      "general": "Allgemein",
+      "assistant": "KI-Assistent"
+    },
+    "bots": {
+      "title": "Agenten-Analytik",
+      "selectAgent": "Einen Agenten auswählen",
+      "executions": "Ausführungen:",
+      "conversion": "Konversion:"
+    },
+    "templates": {
+      "title": "Vorlagen-Analytik",
+      "description": "Leistungsmetriken für Ihre Nachrichtenvorlagen.",
+      "templateName": "Vorlagenname",
+      "category": "Kategorie",
+      "sent": "Gesendet",
+      "opened": "Geöffnet",
+      "clicks": "Klicks",
+      "conversion": "Konversion",
+      "categories": {
+        "welcome": "Willkommen",
+        "sales": "Verkauf",
+        "announcements": "Ankündigungen",
+        "support": "Support",
+        "marketing": "Marketing"
+      }
+    },
+    "general": {
+      "totalUsers": "Benutzer insgesamt",
+      "fromLastMonth": "% vom letzten Monat",
+      "messagesSent": "Gesendete Nachrichten",
+      "avgConversion": "Durchschn. Konversion",
+      "userGrowth": "Benutzerwachstum",
+      "userGrowthDescription": "Trend der monatlich aktiven Benutzer.",
+      "messageVolume": "Nachrichtenvolumen",
+      "messageVolumeDescription": "Gesamtzahl der pro Monat gesendeten Nachrichten.",
+      "templateCategories": "Vorlagenkategorien",
+      "templateCategoriesDescription": "Verteilung der Vorlagen nach Kategorie."
+    },
+    "assistant": {
+      "title": "KI-Assistent",
+      "description": "Fragen Sie mich alles über Ihre Analysen, und ich werde die Antwort für Sie finden.",
+      "placeholder": "Fragen Sie nach Ihren Geschäftsstatistiken, z. B. 'Wie hoch war die Konversionsrate im Mai?'"
+    }
+  },
   "membership": {
     "title": "Mitgliedschaft & Abrechnung",
     "subtitle": "Verwalten Sie Ihr Abonnement, sehen Sie Rechnungen ein und verfolgen Sie Ihre Nutzung.",
@@ -196,6 +427,38 @@
     "april": "April",
     "may": "Mai",
     "june": "Juni"
+  },
+  "templates": {
+    "title": "Vorlagen",
+    "search": "Vorlagen suchen...",
+    "create": "Vorlage erstellen",
+    "preview": "Vorschau",
+    "edit": "Bearbeiten",
+    "duplicate": "Duplizieren",
+    "viewStats": "Statistiken anzeigen",
+    "archive": "Archivieren",
+    "usersReached": "Erreichte Benutzer",
+    "language": "Sprache",
+    "editor": {
+      "title": "Vorlage bearbeiten",
+      "description": "Nehmen Sie hier Änderungen an Ihrer Vorlage vor. Klicken Sie auf ‘Speichern’, wenn Sie fertig sind.",
+      "name": "Vorlagenname",
+      "category": "Kategorie",
+      "selectCategory": "Kategorie auswählen",
+      "categories": {
+        "marketing": "Marketing",
+        "utility": "Dienstprogramm",
+        "authentication": "Authentifizierung"
+      },
+      "selectLanguage": "Sprache auswählen",
+      "contentEditorPreview": "Inhaltseditor & Vorschau",
+      "contentPlaceholder": "Geben Sie hier Ihre Vorlagennachricht ein... Verwenden Sie {{param}} für Variablen.",
+      "testParameters": "Testparameter",
+      "testParametersDescription": "Füllen Sie die folgenden Felder aus, um sie in der Live-Vorschau zu sehen.",
+      "testParametersExample": "Beispiel: Max Mustermann",
+      "cancel": "Abbrechen",
+      "save": "Änderungen speichern"
+    }
   },
   "tenants": {
     "header": {

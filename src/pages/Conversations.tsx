@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -21,14 +22,16 @@ import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ThreadsView from '@/components/features/conversations/ThreadsView';
 
-const statusColumns = [
-  { id: 'waiting', title: 'Waiting', color: 'border-warning bg-warning/5' },
-  { id: 'bot_responding', title: 'Bot Responding', color: 'border-info bg-info/5' },
-  { id: 'escalated', title: 'Escalated', color: 'border-destructive bg-destructive/5' },
-  { id: 'resolved', title: 'Resolved', color: 'border-success bg-success/5' }
-];
-
 const Conversations = () => {
+  const { t } = useTranslation();
+
+  const statusColumns = useMemo(() => [
+    { id: 'waiting', title: t('conversations.board.columns.waiting'), color: 'border-warning bg-warning/5' },
+    { id: 'bot_responding', title: t('conversations.board.columns.bot_responding'), color: 'border-info bg-info/5' },
+    { id: 'escalated', title: t('conversations.board.columns.escalated'), color: 'border-destructive bg-destructive/5' },
+    { id: 'resolved', title: t('conversations.board.columns.resolved'), color: 'border-success bg-success/5' }
+  ], [t]);
+
   const [conversations] = useState<Conversation[]>(mockConversations);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
@@ -68,19 +71,19 @@ const Conversations = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Conversations</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('conversations.title')}</h1>
           <p className="text-muted-foreground mt-1">
-            Monitor and manage all customer conversations
+            {t('conversations.description')}
           </p>
         </div>
         
         <div className="flex gap-2">
           <Button variant="outline">
             <Filter className="w-4 h-4 mr-2" />
-            Filter
+            {t('conversations.filter')}
           </Button>
           <Button variant="outline">
-            Export
+            {t('conversations.export')}
           </Button>
         </div>
       </div>
@@ -89,7 +92,7 @@ const Conversations = () => {
       <div className="relative max-w-md">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
         <Input
-          placeholder="Search conversations..."
+          placeholder={t('conversations.searchPlaceholder')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-10"
@@ -98,8 +101,8 @@ const Conversations = () => {
 
       <Tabs defaultValue="board" className="w-full">
         <TabsList className="grid w-full grid-cols-2 max-w-[320px] mb-4">
-          <TabsTrigger value="threads">Threads</TabsTrigger>
-          <TabsTrigger value="board">Board</TabsTrigger>
+          <TabsTrigger value="threads">{t('conversations.tabs.threads')}</TabsTrigger>
+          <TabsTrigger value="board">{t('conversations.tabs.board')}</TabsTrigger>
         </TabsList>
         <TabsContent value="threads">
           <ThreadsView />
@@ -166,7 +169,7 @@ const Conversations = () => {
                               {conversation.currentAgent}
                             </Badge>
                             <span className="text-xs text-muted-foreground">
-                              {conversation.messages} msgs
+                              {`${conversation.messages} ${t('conversations.card.messagesSuffix')}`}
                             </span>
                           </div>
                         </div>
@@ -178,7 +181,7 @@ const Conversations = () => {
                 {conversations.length === 0 && (
                   <div className="text-center py-8 text-muted-foreground">
                     <MessageSquare className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                    <p className="text-sm">No conversations</p>
+                    <p className="text-sm">{t('conversations.board.noConversations')}</p>
                   </div>
                 )}
               </div>
@@ -195,7 +198,7 @@ const Conversations = () => {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <MessageSquare className="w-5 h-5" />
-              Conversation Details
+              {t('conversations.details.title')}
             </DialogTitle>
           </DialogHeader>
           

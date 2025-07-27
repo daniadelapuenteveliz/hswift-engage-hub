@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Card,
   CardContent,
@@ -59,50 +60,53 @@ const templateAnalyticsData = [
   },
 ];
 
-const getCategoryBadge = (category: string) => {
-  switch (category.toLowerCase()) {
+const GetCategoryBadge = ({ category }: { category: string }) => {
+  const { t } = useTranslation();
+  const categoryKey = category.toLowerCase();
+  const translatedCategory = t(`analytics.templates.categories.${categoryKey}`);
+
+  switch (categoryKey) {
     case 'welcome':
-      return <Badge variant="default">Welcome</Badge>;
+      return <Badge variant="default">{translatedCategory}</Badge>;
     case 'sales':
-      return <Badge variant="destructive">Sales</Badge>;
+      return <Badge variant="destructive">{translatedCategory}</Badge>;
     case 'announcements':
-      return <Badge variant="secondary">Announcements</Badge>;
+      return <Badge variant="secondary">{translatedCategory}</Badge>;
     case 'support':
-      return <Badge variant="outline">Support</Badge>;
+      return <Badge variant="outline">{translatedCategory}</Badge>;
     case 'marketing':
-      return <Badge className="bg-blue-500 text-white">Marketing</Badge>;
+      return <Badge className="bg-blue-500 text-white">{translatedCategory}</Badge>;
     default:
       return <Badge>{category}</Badge>;
   }
 };
 
 const TemplateAnalytics = () => {
+  const { t } = useTranslation();
   return (
     <div className="p-4 sm:p-6 flex-1 flex flex-col h-full">
       <Card className="w-full flex-grow flex flex-col">
         <CardHeader>
-          <CardTitle>Template Analytics</CardTitle>
-          <CardDescription>
-            Performance metrics for your message templates.
-          </CardDescription>
+          <CardTitle>{t('analytics.templates.title')}</CardTitle>
+          <CardDescription>{t('analytics.templates.description')}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Template Name</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead className="text-right">Sent</TableHead>
-                <TableHead className="text-right">Opened</TableHead>
-                <TableHead className="text-right">Clicks</TableHead>
-                <TableHead className="text-right">Conversion</TableHead>
+                <TableHead>{t('analytics.templates.templateName')}</TableHead>
+                <TableHead>{t('analytics.templates.category')}</TableHead>
+                <TableHead className="text-right">{t('analytics.templates.sent')}</TableHead>
+                <TableHead className="text-right">{t('analytics.templates.opened')}</TableHead>
+                <TableHead className="text-right">{t('analytics.templates.clicks')}</TableHead>
+                <TableHead className="text-right">{t('analytics.templates.conversion')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {templateAnalyticsData.map((template) => (
                 <TableRow key={template.name}>
                   <TableCell className="font-medium">{template.name}</TableCell>
-                  <TableCell>{getCategoryBadge(template.category)}</TableCell>
+                  <TableCell><GetCategoryBadge category={template.category} /></TableCell>
                   <TableCell className="text-right">{template.sent.toLocaleString()}</TableCell>
                   <TableCell className="text-right">{template.opened.toLocaleString()}</TableCell>
                   <TableCell className="text-right">{template.clicks.toLocaleString()}</TableCell>

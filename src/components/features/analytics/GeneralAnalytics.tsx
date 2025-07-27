@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Card,
   CardContent,
@@ -51,37 +52,45 @@ const templateCategoryData = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 const GeneralAnalytics = () => {
+  const { t } = useTranslation();
+
+  const templateCategoryData = [
+    { name: t('analytics.templates.categories.welcome'), value: 400 },
+    { name: t('analytics.templates.categories.sales'), value: 300 },
+    { name: t('analytics.templates.categories.support'), value: 300 },
+    { name: t('analytics.templates.categories.marketing'), value: 200 },
+  ];
   return (
     <div className="p-4 sm:p-6 flex-1 h-full overflow-y-auto">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-6">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('analytics.general.totalUsers')}</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+1,253</div>
-            <p className="text-xs text-muted-foreground">+15.2% from last month</p>
+            <p className="text-xs text-muted-foreground">+15.2% {t('analytics.general.fromLastMonth')}</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Messages Sent</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('analytics.general.messagesSent')}</CardTitle>
             <MessagesSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+12,350</div>
-            <p className="text-xs text-muted-foreground">+8.1% from last month</p>
+            <p className="text-xs text-muted-foreground">+8.1% {t('analytics.general.fromLastMonth')}</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Avg. Conversion</CardTitle>
+            <CardTitle className="text-sm font-medium">{t('analytics.general.avgConversion')}</CardTitle>
             <Percent className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">24.5%</div>
-            <p className="text-xs text-muted-foreground">+2.3% from last month</p>
+            <p className="text-xs text-muted-foreground">+2.5% {t('analytics.general.fromLastMonth')}</p>
           </CardContent>
         </Card>
       </div>
@@ -89,8 +98,8 @@ const GeneralAnalytics = () => {
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="col-span-1 lg:col-span-2">
           <CardHeader>
-            <CardTitle>User Growth</CardTitle>
-            <CardDescription>Monthly active users trend.</CardDescription>
+            <CardTitle>{t('analytics.general.userGrowth')}</CardTitle>
+            <CardDescription>{t('analytics.general.userGrowthDescription')}</CardDescription>
           </CardHeader>
           <CardContent className="h-72">
             <ResponsiveContainer width="100%" height="100%">
@@ -107,8 +116,8 @@ const GeneralAnalytics = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Message Volume</CardTitle>
-            <CardDescription>Total messages sent per month.</CardDescription>
+            <CardTitle>{t('analytics.general.messageVolume')}</CardTitle>
+            <CardDescription>{t('analytics.general.messageVolumeDescription')}</CardDescription>
           </CardHeader>
           <CardContent className="h-72">
             <ResponsiveContainer width="100%" height="100%">
@@ -125,8 +134,8 @@ const GeneralAnalytics = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Template Categories</CardTitle>
-            <CardDescription>Distribution of templates by category.</CardDescription>
+            <CardTitle>{t('analytics.general.templateCategories')}</CardTitle>
+            <CardDescription>{t('analytics.general.templateCategoriesDescription')}</CardDescription>
           </CardHeader>
           <CardContent className="h-72 flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">

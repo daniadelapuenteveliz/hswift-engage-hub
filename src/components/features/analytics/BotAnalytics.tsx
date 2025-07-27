@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import ReactFlow, { MiniMap, Background, BackgroundVariant, NodeProps, MarkerType } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Card, CardContent } from '@/components/ui/card';
@@ -106,6 +107,7 @@ const formatCount = (num: number) => {
 };
 
 const AnalyticsNode: React.FC<NodeProps> = ({ data }) => {
+  const { t } = useTranslation();
   const { icon, label, count, conversion } = data;
   const isHighConversion = conversion >= 80;
   const isLowConversion = conversion < 50;
@@ -118,11 +120,11 @@ const AnalyticsNode: React.FC<NodeProps> = ({ data }) => {
       </div>
       <div className="space-y-2 text-sm">
         <div className="flex justify-between items-center text-gray-600">
-          <span>Executions:</span>
+          <span>{t('analytics.bots.executions')}</span>
           <span className="font-semibold text-gray-800">{formatCount(count)}</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-gray-600">Conversion:</span>
+          <span className="text-gray-600">{t('analytics.bots.conversion')}</span>
           <div className={`flex items-center gap-1 font-semibold px-2 py-0.5 rounded-full ${isHighConversion ? 'text-green-700 bg-green-100' : isLowConversion ? 'text-red-700 bg-red-100' : 'text-yellow-700 bg-yellow-100'}`}>
             {isHighConversion ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
             <span>{conversion}%</span>
@@ -148,6 +150,7 @@ const defaultEdgeOptions = {
 };
 
 const BotAnalytics = () => {
+  const { t } = useTranslation();
   const [selectedAgent, setSelectedAgent] = useState('maui');
 
   const processedNodes = useMemo(() => {
@@ -172,11 +175,11 @@ const BotAnalytics = () => {
   return (
     <div className="p-4 sm:p-6 flex-1 flex flex-col h-full">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl font-bold">Agent Analytics</h1>
+        <h1 className="text-2xl font-bold">{t('analytics.bots.title')}</h1>
         <div className="w-64">
           <Select value={selectedAgent} onValueChange={setSelectedAgent}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select an Agent" />
+              <SelectValue placeholder={t('analytics.bots.selectAgent')} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="hermes">Hermes</SelectItem>

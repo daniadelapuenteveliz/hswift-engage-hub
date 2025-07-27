@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import TemplatePreview, { TemplatePreviewRef } from '@/components/features/TemplatePreview';
 import TemplateEditor from '@/components/features/TemplateEditor';
 import { renderTemplate } from '@/lib/utils';
@@ -12,6 +13,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const Templates = () => {
+  const { t } = useTranslation();
   const [templates, setTemplates] = useState<Template[]>(mockTemplates);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
@@ -45,11 +47,11 @@ const Templates = () => {
         <div className="lg:col-span-2 p-6 flex flex-col h-full">
           <div className="flex-shrink-0">
             <div className="flex justify-between items-center mb-6">
-              <h1 className="text-3xl font-bold text-foreground flex-shrink-0">Templates</h1>
+              <h1 className="text-3xl font-bold text-foreground flex-shrink-0">{t('templates.title')}</h1>
               <div className="relative flex-1 max-w-md mx-8">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
-                  placeholder="Search templates..."
+                  placeholder={t('templates.search')}
                   className="pl-10 bg-background/80 backdrop-blur-sm w-full"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -57,7 +59,7 @@ const Templates = () => {
               </div>
               <Button className="flex items-center gap-2 flex-shrink-0">
                 <Plus className="w-5 h-5" />
-                <span>Create Template</span>
+                <span>{t('templates.create')}</span>
               </Button>
             </div>
           </div>
@@ -89,7 +91,7 @@ const Templates = () => {
                             </Button>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Preview</p>
+                            <p>{t('templates.preview')}</p>
                           </TooltipContent>
                         </Tooltip>
                         <DropdownMenu>
@@ -99,10 +101,10 @@ const Templates = () => {
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                            <DropdownMenuItem>View Stats</DropdownMenuItem>
-                            <DropdownMenuItem className="text-destructive">Archive</DropdownMenuItem>
+                            <DropdownMenuItem>{t('templates.edit')}</DropdownMenuItem>
+                            <DropdownMenuItem>{t('templates.duplicate')}</DropdownMenuItem>
+                            <DropdownMenuItem>{t('templates.viewStats')}</DropdownMenuItem>
+                            <DropdownMenuItem className="text-destructive">{t('templates.archive')}</DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </div>
@@ -117,14 +119,14 @@ const Templates = () => {
                         <Users className="w-4 h-4 mr-2 text-primary" />
                         <span>{template.recipients.toLocaleString()}</span>
                       </TooltipTrigger>
-                      <TooltipContent>Users Reached</TooltipContent>
+                      <TooltipContent>{t('templates.usersReached')}</TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger className="flex items-center">
                         <Languages className="w-4 h-4 mr-2 text-primary" />
                         <span>{template.language}</span>
                       </TooltipTrigger>
-                      <TooltipContent>Language</TooltipContent>
+                      <TooltipContent>{t('templates.language')}</TooltipContent>
                     </Tooltip>
                   </CardFooter>
                 </Card>

@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,44 +37,78 @@ const permissionsByRole = {
 
 const allPermissions = {
   'template_management': { label: 'Template Management', permissions: { 'create': 'Create Templates', 'edit': 'Edit Templates', 'delete': 'Delete Templates', 'view': 'View Templates' } },
-  'user_management': { label: 'User Management', permissions: { 'create': 'Create Users', 'edit': 'Edit Roles', 'delete': 'Delete Users', 'view': 'View Users & Roles' } },
-  'billing': { label: 'Billing & Membership', permissions: { 'view': 'View Invoices', 'manage': 'Manage Subscription' } },
+  'user_management': { label: 'User Management', permissions: { 'create': 'Create Users', 'edit': 'Edit Users', 'delete': 'Delete Users', 'view': 'View Users' } },
+  'billing': { label: 'Billing', permissions: { 'view': 'View Billing', 'manage': 'Manage Billing' } },
 };
 
-const UserIcon = ({ type }) => {
-  if (type === 'Agent') return <Bot className="w-5 h-5 text-muted-foreground" />;
-  if (type === 'System') return <ShieldCheck className="w-5 h-5 text-muted-foreground" />;
+const UserIcon = ({ type, t }) => {
+  const typeKey = Object.keys(t('usersAndRoles.users.types', { returnObjects: true })).find(key => t(`usersAndRoles.users.types.${key}`) === type);
+
+  if (typeKey === 'agent') return <Bot className="w-5 h-5 text-muted-foreground" />;
+  if (typeKey === 'system') return <ShieldCheck className="w-5 h-5 text-muted-foreground" />;
   return <User className="w-5 h-5 text-muted-foreground" />;
 };
 
 const UsersAndRoles = () => {
+  const { t } = useTranslation();
+
+  const mockUsers = useMemo(() => [
+    { id: 1, name: 'Dania de la Puente', email: 'dania@example.com', role: t('usersAndRoles.roles.roleNames.admin'), type: t('usersAndRoles.users.types.human'), avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d' },
+    { id: 2, name: 'Carlos Rodriguez', email: 'carlos@example.com', role: t('usersAndRoles.roles.roleNames.editor'), type: t('usersAndRoles.users.types.human'), avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e' },
+    { id: 3, name: 'Support Bot', email: 'support@agent.hswift.com', role: t('usersAndRoles.roles.roleNames.agent'), type: t('usersAndRoles.users.types.agent'), avatar: null },
+    { id: 4, name: 'Ana Gomez', email: 'ana@example.com', role: t('usersAndRoles.roles.roleNames.viewer'), type: t('usersAndRoles.users.types.human'), avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704f' },
+    { id: 5, name: 'System Process', email: 'system@internal.hswift.com', role: t('usersAndRoles.roles.roleNames.system'), type: t('usersAndRoles.users.types.system'), avatar: null },
+  ], [t]);
+
+  const mockRoles = useMemo(() => [
+    { id: 'admin', name: t('usersAndRoles.roles.roleNames.admin'), description: t('usersAndRoles.roles.roleDescriptions.admin') },
+    { id: 'editor', name: t('usersAndRoles.roles.roleNames.editor'), description: t('usersAndRoles.roles.roleDescriptions.editor') },
+    { id: 'agent', name: t('usersAndRoles.roles.roleNames.agent'), description: t('usersAndRoles.roles.roleDescriptions.agent') },
+    { id: 'viewer', name: t('usersAndRoles.roles.roleNames.viewer'), description: t('usersAndRoles.roles.roleDescriptions.viewer') },
+    { id: 'system', name: t('usersAndRoles.roles.roleNames.system'), description: t('usersAndRoles.roles.roleDescriptions.system') },
+  ], [t]);
+
+  const allPermissions = useMemo(() => ({
+    'template_management': { label: t('usersAndRoles.permissions.template_management.label'), permissions: { 'create': t('usersAndRoles.permissions.template_management.create'), 'edit': t('usersAndRoles.permissions.template_management.edit'), 'delete': t('usersAndRoles.permissions.template_management.delete'), 'view': t('usersAndRoles.permissions.template_management.view') } },
+    'user_management': { label: t('usersAndRoles.permissions.user_management.label'), permissions: { 'create': t('usersAndRoles.permissions.user_management.create'), 'edit': t('usersAndRoles.permissions.user_management.edit'), 'delete': t('usersAndRoles.permissions.user_management.delete'), 'view': t('usersAndRoles.permissions.user_management.view') } },
+    'billing': { label: t('usersAndRoles.permissions.billing.label'), permissions: { 'view': t('usersAndRoles.permissions.billing.view'), 'manage': t('usersAndRoles.permissions.billing.manage') } },
+  }), [t]);
+
   const [userSearch, setUserSearch] = useState('');
   const [roleSearch, setRoleSearch] = useState('');
   const [selectedRole, setSelectedRole] = useState(mockRoles[0]);
+
+  useEffect(() => {
+    setSelectedRole(mockRoles[0]);
+  }, [mockRoles]);
 
   const filteredUsers = useMemo(() =>
     mockUsers.filter(user =>
       user.name.toLowerCase().includes(userSearch.toLowerCase()) ||
       user.email.toLowerCase().includes(userSearch.toLowerCase())
-    ), [userSearch]);
+    ), [userSearch, mockUsers]);
 
   const filteredRoles = useMemo(() =>
     mockRoles.filter(role =>
       role.name.toLowerCase().includes(roleSearch.toLowerCase())
-    ), [roleSearch]);
+    ), [roleSearch, mockRoles]);
+
+  if (!selectedRole) {
+    return null; // Or a loading indicator
+  }
 
   return (
     <div className="p-6 sm:p-8 bg-muted/40 min-h-full">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Users & Roles</h1>
-          <p className="text-muted-foreground mt-1">Manage who has access to your platform and what they can do.</p>
+          <h1 className="text-3xl font-bold text-foreground">{t('usersAndRoles.title')}</h1>
+          <p className="text-muted-foreground mt-1">{t('usersAndRoles.description')}</p>
         </div>
 
         <Tabs defaultValue="users" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:w-1/3">
-            <TabsTrigger value="users">Users</TabsTrigger>
-            <TabsTrigger value="roles">Roles & Permissions</TabsTrigger>
+            <TabsTrigger value="users">{t('usersAndRoles.tabs.users')}</TabsTrigger>
+            <TabsTrigger value="roles">{t('usersAndRoles.tabs.roles')}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="users">
@@ -82,19 +117,19 @@ const UsersAndRoles = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="relative w-full md:w-1/3">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input placeholder="Search by name or email..." className="pl-10" value={userSearch} onChange={(e) => setUserSearch(e.target.value)} />
+                    <Input placeholder={t('usersAndRoles.users.searchPlaceholder')} className="pl-10" value={userSearch} onChange={(e) => setUserSearch(e.target.value)} />
                   </div>
-                  <Button><PlusCircle className="w-4 h-4 mr-2" />Create User</Button>
+                  <Button><PlusCircle className="w-4 h-4 mr-2" />{t('usersAndRoles.users.createUser')}</Button>
                 </div>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>User</TableHead>
-                      <TableHead>Role</TableHead>
-                      <TableHead>User Type</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
+                      <TableHead>{t('usersAndRoles.users.userColumn')}</TableHead>
+                      <TableHead>{t('usersAndRoles.users.roleColumn')}</TableHead>
+                      <TableHead>{t('usersAndRoles.users.userTypeColumn')}</TableHead>
+                      <TableHead className="text-right">{t('usersAndRoles.users.actionsColumn')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -102,7 +137,7 @@ const UsersAndRoles = () => {
                       <TableRow key={user.id}>
                         <TableCell>
                           <div className="flex items-center gap-3">
-                            {user.avatar ? <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" /> : <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center"><UserIcon type={user.type} /></div>}
+                            {user.avatar ? <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" /> : <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center"><UserIcon type={user.type} t={t} /></div>}
                             <div>
                               <p className="font-medium">{user.name}</p>
                               <p className="text-sm text-muted-foreground">{user.email}</p>
@@ -110,15 +145,15 @@ const UsersAndRoles = () => {
                           </div>
                         </TableCell>
                         <TableCell>{user.role}</TableCell>
-                        <TableCell><Badge variant={user.type === 'Human' ? 'secondary' : 'outline'}>{user.type}</Badge></TableCell>
+                        <TableCell><Badge variant={user.type === t('usersAndRoles.users.types.human') ? 'secondary' : 'outline'}>{user.type}</Badge></TableCell>
                         <TableCell className="text-right">
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <Button variant="ghost" size="icon"><MoreHorizontal className="w-4 h-4" /></Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                              <DropdownMenuItem>Edit User</DropdownMenuItem>
-                              <DropdownMenuItem className="text-destructive">Delete User</DropdownMenuItem>
+                              <DropdownMenuItem>{t('usersAndRoles.users.editUser')}</DropdownMenuItem>
+                              <DropdownMenuItem className="text-destructive">{t('usersAndRoles.users.deleteUser')}</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
@@ -135,10 +170,10 @@ const UsersAndRoles = () => {
               <div className="md:col-span-1">
                 <Card className="shadow-sm">
                   <CardHeader>
-                    <CardTitle>Roles</CardTitle>
+                    <CardTitle>{t('usersAndRoles.roles.title')}</CardTitle>
                     <div className="relative mt-2">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input placeholder="Search roles..." className="pl-10" value={roleSearch} onChange={(e) => setRoleSearch(e.target.value)} />
+                      <Input placeholder={t('usersAndRoles.roles.searchPlaceholder')} className="pl-10" value={roleSearch} onChange={(e) => setRoleSearch(e.target.value)} />
                     </div>
                   </CardHeader>
                   <CardContent className='p-0'>
@@ -152,13 +187,13 @@ const UsersAndRoles = () => {
                     </div>
                   </CardContent>
                 </Card>
-                <Button className="w-full mt-4"><PlusCircle className="w-4 h-4 mr-2" />Create Role</Button>
+                <Button className="w-full mt-4"><PlusCircle className="w-4 h-4 mr-2" />{t('usersAndRoles.roles.createRole')}</Button>
               </div>
               <div className="md:col-span-2">
                 <Card className="shadow-sm">
                   <CardHeader>
-                    <CardTitle>Permissions for {selectedRole.name}</CardTitle>
-                    <CardDescription>Define what users with this role can access and do.</CardDescription>
+                    <CardTitle>{t('usersAndRoles.roles.permissionsFor', { role: selectedRole.name })}</CardTitle>
+                    <CardDescription>{t('usersAndRoles.roles.permissionsDescription')}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {Object.entries(allPermissions).map(([key, group]) => (

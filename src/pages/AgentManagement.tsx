@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,45 +7,47 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlusCircle, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const agents = [
-  {
-    name: 'Hermes',
-    description: 'Hola, soy Hermes, encargado de la mensajería y de asegurar que tus comunicaciones fluyan sin interrupciones.',
-    avatar: '/avatars/hermes.png', // Placeholder
-    fallback: 'H',
-  },
-  {
-    name: 'Boet',
-    description: 'Soy Boet, tu especialista en ventas. Mi objetivo es identificar oportunidades y cerrar tratos de manera eficiente.',
-    avatar: '/avatars/boet.png',
-    fallback: 'B',
-  },
-  {
-    name: 'Maui',
-    description: '¡De nada! Soy Maui, semidiós del viento y el mar, listo para realizar hazañas increíbles por ti.',
-    avatar: '/avatars/maui.png',
-    fallback: 'M',
-  },
-];
-
 const AgentManagement = () => {
+  const { t } = useTranslation();
+
+  const agents = useMemo(() => [
+    {
+      name: 'Hermes',
+      description: t('agentManagement.agents.hermes.description'),
+      avatar: '/avatars/hermes.png',
+      fallback: 'H',
+    },
+    {
+      name: 'Boet',
+      description: t('agentManagement.agents.boet.description'),
+      avatar: '/avatars/boet.png',
+      fallback: 'B',
+    },
+    {
+      name: 'Maui',
+      description: t('agentManagement.agents.maui.description'),
+      avatar: '/avatars/maui.png',
+      fallback: 'M',
+    },
+  ], [t]);
+
   return (
     <div className="p-4 sm:p-6 h-full flex flex-col">
       <header className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Agent Management</h1>
-          <p className="text-muted-foreground">Crea, configura y gestiona tus agentes de IA.</p>
+          <h1 className="text-2xl font-bold tracking-tight">{t('agentManagement.header.title')}</h1>
+          <p className="text-muted-foreground">{t('agentManagement.header.description')}</p>
         </div>
         <Button>
           <PlusCircle className="w-4 h-4 mr-2" />
-          Create Agent
+          {t('agentManagement.header.createAgent')}
         </Button>
       </header>
 
       <div className="mb-6">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-          <Input placeholder="Search agents..." className="pl-10" />
+          <Input placeholder={t('agentManagement.searchPlaceholder')} className="pl-10" />
         </div>
       </div>
 
@@ -58,7 +61,7 @@ const AgentManagement = () => {
               </Avatar>
               <div>
                 <CardTitle>{agent.name}</CardTitle>
-                <CardDescription>AI Agent</CardDescription>
+                <CardDescription>{t('agentManagement.agentType')}</CardDescription>
               </div>
             </CardHeader>
             <CardContent className="flex-grow">
@@ -67,7 +70,7 @@ const AgentManagement = () => {
             <div className="p-6 pt-0">
               <Link to={`/agent/${agent.name.toLowerCase()}/configure`} className="w-full">
                 <Button variant="outline" className="w-full">
-                  Configure
+                  {t('agentManagement.buttons.configure')}
                 </Button>
               </Link>
             </div>

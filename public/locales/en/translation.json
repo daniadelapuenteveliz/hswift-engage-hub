@@ -147,6 +147,237 @@
       "description": "Unlimited conversations and advanced analytics"
     }
   },
+  "usersAndRoles": {
+    "title": "Users & Roles",
+    "description": "Manage who has access to your platform and what they can do.",
+    "tabs": {
+      "users": "Users",
+      "roles": "Roles & Permissions"
+    },
+    "users": {
+      "searchPlaceholder": "Search by name or email...",
+      "createUser": "Create User",
+      "userColumn": "User",
+      "roleColumn": "Role",
+      "userTypeColumn": "User Type",
+      "actionsColumn": "Actions",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "types": {
+        "human": "Human",
+        "agent": "Agent",
+        "system": "System"
+      }
+    },
+    "roles": {
+      "title": "Roles",
+      "searchPlaceholder": "Search roles...",
+      "createRole": "Create Role",
+      "permissionsFor": "Permissions for {{role}}",
+      "permissionsDescription": "Define what users with this role can access and do.",
+      "roleNames": {
+        "admin": "Admin",
+        "editor": "Editor",
+        "agent": "Agent",
+        "viewer": "Viewer",
+        "system": "System"
+      },
+      "roleDescriptions": {
+        "admin": "Full access to all features and settings.",
+        "editor": "Can create and manage templates and agents.",
+        "agent": "Interacts with conversations, limited access.",
+        "viewer": "Read-only access to dashboards and analytics.",
+        "system": "Internal system processes."
+      }
+    },
+    "permissions": {
+      "template_management": {
+        "label": "Template Management",
+        "create": "Create Templates",
+        "edit": "Edit Templates",
+        "delete": "Delete Templates",
+        "view": "View Templates"
+      },
+      "user_management": {
+        "label": "User Management",
+        "create": "Create Users",
+        "edit": "Edit Roles",
+        "delete": "Delete Users",
+        "view": "View Users & Roles"
+      },
+      "billing": {
+        "label": "Billing",
+        "permissions": {
+          "view": "View Billing",
+          "manage": "Manage Billing"
+        }
+      }
+    }
+  },
+  "conversations": {
+    "title": "Conversations",
+    "description": "Monitor and manage all customer conversations",
+    "filter": "Filter",
+    "export": "Export",
+    "searchPlaceholder": "Search conversations...",
+    "tabs": {
+      "threads": "Threads",
+      "board": "Board"
+    },
+    "board": {
+      "columns": {
+        "waiting": "Waiting",
+        "bot_responding": "Bot Responding",
+        "escalated": "Escalated",
+        "resolved": "Resolved"
+      },
+      "noConversations": "No conversations"
+    },
+    "card": {
+      "messagesSuffix": "msgs"
+    },
+    "details": {
+      "title": "Conversation Details"
+    }
+  },
+  "apisAndTools": {
+    "header": {
+      "title": "Connect, Automate, Succeed.",
+      "description": "Integrate your favorite tools in minutes and create effortless workflows. From Slack notifications to custom APIs, HSwift is your command center.",
+      "howItWorks": "How does it work?",
+      "step1": "<b>One-click connect:</b> Choose from our growing list of apps and authorize the connection. It's that easy!",
+      "step2": "<b>Build your own API:</b> Define your own endpoints like in Postman to build custom integrations. No limits."
+    },
+    "integrations": {
+      "title": "Available Integrations",
+      "connectNewTool": "Connect New Tool",
+      "status": {
+        "connected": "Connected",
+        "available": "Available"
+      },
+      "buttons": {
+        "manage": "Manage",
+        "connect": "Connect"
+      },
+      "items": {
+        "boe": {
+          "name": "Boe Integration",
+          "description": "Custom API for internal operations and automated workflows.",
+          "stats": {
+            "endpoints": "Endpoints",
+            "failureRate": "Failure Rate",
+            "uptime": "Uptime"
+          }
+        },
+        "slack": {
+          "name": "Slack",
+          "description": "Send notifications and alerts directly to your team's channels.",
+          "stats": {
+            "workspaces": "Workspaces",
+            "activeChannels": "Active Channels"
+          }
+        },
+        "zendesk": {
+          "name": "Zendesk",
+          "description": "Sync conversations and tickets with your customer support platform."
+        }
+      }
+    },
+    "toolSets": {
+      "title": "Tool Sets",
+      "description": "Pre-built packages of tools to enhance your agents' capabilities.",
+      "status": {
+        "installed": "Installed",
+        "available": "Available"
+      },
+      "buttons": {
+        "configure": "Configure",
+        "install": "Install"
+      },
+      "items": {
+        "boe": {
+          "name": "Boe tools",
+          "description": "A collection of tools to interact with the Boe API, including user management and order processing."
+        },
+        "search": {
+          "name": "Search internet tool",
+          "description": "A powerful tool to perform web searches and get up-to-date information from the internet."
+        }
+      }
+    }
+  },
+  "agentManagement": {
+    "header": {
+      "title": "Agent Management",
+      "description": "Create, configure, and manage your AI agents.",
+      "createAgent": "Create Agent"
+    },
+    "searchPlaceholder": "Search agents...",
+    "agentType": "AI Agent",
+    "buttons": {
+      "configure": "Configure"
+    },
+    "agents": {
+      "hermes": {
+        "description": "Hello, I'm Hermes, in charge of messaging and ensuring your communications flow without interruptions."
+      },
+      "boet": {
+        "description": "I'm Boet, your sales specialist. My goal is to identify opportunities and close deals efficiently."
+      },
+      "maui": {
+        "description": "You're welcome! I'm Maui, demigod of the wind and sea, ready to perform incredible feats for you."
+      }
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "nav": {
+      "bots": "Bots",
+      "templates": "Templates",
+      "general": "General",
+      "assistant": "AI Assistant"
+    },
+    "bots": {
+      "title": "Agent Analytics",
+      "selectAgent": "Select an Agent",
+      "executions": "Executions:",
+      "conversion": "Conversion:"
+    },
+    "templates": {
+      "title": "Template Analytics",
+      "description": "Performance metrics for your message templates.",
+      "templateName": "Template Name",
+      "category": "Category",
+      "sent": "Sent",
+      "opened": "Opened",
+      "clicks": "Clicks",
+      "conversion": "Conversion",
+      "categories": {
+        "welcome": "Welcome",
+        "sales": "Sales",
+        "announcements": "Announcements",
+        "support": "Support",
+        "marketing": "Marketing"
+      }
+    },
+    "general": {
+      "totalUsers": "Total Users",
+      "fromLastMonth": "% from last month",
+      "messagesSent": "Messages Sent",
+      "avgConversion": "Avg. Conversion",
+      "userGrowth": "User Growth",
+      "userGrowthDescription": "Monthly active users trend.",
+      "messageVolume": "Message Volume",
+      "messageVolumeDescription": "Total messages sent per month.",
+      "templateCategories": "Template Categories",
+      "templateCategoriesDescription": "Distribution of templates by category."
+    },
+    "assistant": {
+      "title": "AI Assistant",
+      "description": "Ask me anything about your analytics, and I'll find the answer for you.",
+      "placeholder": "Ask about your business stats, like 'what was the conversion rate in May?'"
+    }
+  },
   "membership": {
     "title": "Membership & Billing",
     "subtitle": "Manage your subscription, view invoices, and track your usage.",
@@ -196,6 +427,38 @@
     "april": "April",
     "may": "May",
     "june": "June"
+  },
+  "templates": {
+    "title": "Templates",
+    "search": "Search templates...",
+    "create": "Create Template",
+    "preview": "Preview",
+    "edit": "Edit",
+    "duplicate": "Duplicate",
+    "viewStats": "View Stats",
+    "archive": "Archive",
+    "usersReached": "Users Reached",
+    "language": "Language",
+    "editor": {
+      "title": "Edit Template",
+      "description": "Make changes to your template here. Click save when you're done.",
+      "name": "Template Name",
+      "category": "Category",
+      "selectCategory": "Select category",
+      "categories": {
+        "marketing": "Marketing",
+        "utility": "Utility",
+        "authentication": "Authentication"
+      },
+      "selectLanguage": "Select language",
+      "contentEditorPreview": "Content Editor & Preview",
+      "contentPlaceholder": "Enter your template message here... Use {{param}} for variables.",
+      "testParameters": "Test Parameters",
+      "testParametersDescription": "Fill in the fields below to see them in the live preview.",
+      "testParametersExample": "Example: John Doe",
+      "cancel": "Cancel",
+      "save": "Save Changes"
+    }
   },
   "tenants": {
     "header": {
