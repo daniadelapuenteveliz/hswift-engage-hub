@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Template } from '@/data/mockData';
 import { Separator } from '@/components/ui/separator';
+import { useTranslation } from 'react-i18next';
 
 interface TemplateEditorProps {
   template: Template | null;
@@ -15,6 +16,7 @@ interface TemplateEditorProps {
 }
 
 const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [editedTemplate, setEditedTemplate] = useState<Template | null>(template);
   const [params, setParams] = useState<string[]>([]);
   const [testValues, setTestValues] = useState<{ [key: string]: string }>({});
@@ -80,20 +82,20 @@ const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClo
       <SheetContent className="w-full sm:max-w-2xl p-0">
         <div className="flex flex-col h-full">
           <SheetHeader className="p-6">
-            <SheetTitle className="text-2xl font-bold">Edit Template</SheetTitle>
-            <SheetDescription>Make changes to your template here. Click save when you're done.</SheetDescription>
+                        <SheetTitle className="text-2xl font-bold">{t('templateEditor.title')}</SheetTitle>
+            <SheetDescription>{t('templateEditor.description')}</SheetDescription>
           </SheetHeader>
           <div className="flex-1 overflow-y-auto p-6 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-1">
-                <Label htmlFor="name">Template Name</Label>
+                                <Label htmlFor="name">{t('templateEditor.templateNameLabel')}</Label>
                 <Input id="name" value={editedTemplate.name} className="mt-1" />
               </div>
               <div>
-                <Label htmlFor="category">Category</Label>
+                                <Label htmlFor="category">{t('templateEditor.categoryLabel')}</Label>
                 <Select value={editedTemplate.category}>
                   <SelectTrigger className="mt-1">
-                    <SelectValue placeholder="Select category" />
+                                        <SelectValue placeholder={t('templateEditor.categoryPlaceholder')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Marketing">Marketing</SelectItem>
@@ -103,10 +105,10 @@ const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClo
                 </Select>
               </div>
               <div>
-                <Label htmlFor="language">Language</Label>
+                                <Label htmlFor="language">{t('templateEditor.languageLabel')}</Label>
                 <Select value={editedTemplate.language}>
                   <SelectTrigger className="mt-1">
-                    <SelectValue placeholder="Select language" />
+                                        <SelectValue placeholder={t('templateEditor.languagePlaceholder')} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Español">Español</SelectItem>
@@ -116,14 +118,14 @@ const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClo
               </div>
             </div>
             <div className="p-4 border rounded-lg bg-slate-50 dark:bg-slate-800/50">
-              <Label>Content Editor & Preview</Label>
+                            <Label>{t('templateEditor.contentEditorLabel')}</Label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                 <Textarea
                   id="content"
                   value={editedTemplate.content}
                   onChange={handleContentChange}
                   className="min-h-[200px] bg-white dark:bg-slate-900"
-                  placeholder="Enter your template message here... Use {{param}} for variables."
+                                    placeholder={t('templateEditor.contentPlaceholder')}
                 />
                 <div className="flex items-center justify-center p-4 bg-cover bg-center rounded-md" style={{ backgroundImage: `url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')`}}>
                     <div className="bg-white dark:bg-slate-800 rounded-lg p-3 max-w-full shadow-md">
@@ -137,15 +139,15 @@ const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClo
             {params.length > 0 && (
               <div>
                 <Separator className="my-6" />
-                <h3 className="text-lg font-semibold mb-4">Test Parameters</h3>
+                                <h3 className="text-lg font-semibold mb-4">{t('templateEditor.testParametersTitle')}</h3>
                 <div className="space-y-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border">
-                  <p className="text-sm text-muted-foreground">Fill in the fields below to see them in the live preview.</p>
+                                    <p className="text-sm text-muted-foreground">{t('templateEditor.testParametersDescription')}</p>
                   {params.map(param => (
                     <div key={param}>
                       <Label htmlFor={`param-${param}`}>{`{{${param}}}`}</Label>
                       <Input 
                         id={`param-${param}`} 
-                        placeholder={`Example: John Doe`}
+                                                placeholder={t('templateEditor.testParameterPlaceholder')}
                         className="mt-1" 
                         value={testValues[param] || ''}
                         onChange={(e) => handleTestValueChange(param, e.target.value)}
@@ -158,9 +160,9 @@ const TemplateEditor: React.FC<TemplateEditorProps> = ({ template, isOpen, onClo
           </div>
           <SheetFooter className="p-6 bg-slate-50 dark:bg-slate-900/50 border-t">
             <SheetClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">{t('templateEditor.cancelButton')}</Button>
             </SheetClose>
-            <Button type="submit">Save Changes</Button>
+            <Button onClick={onClose}>{t('templateEditor.saveButton')}</Button>
           </SheetFooter>
         </div>
       </SheetContent>

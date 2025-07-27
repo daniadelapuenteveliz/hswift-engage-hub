@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import TemplatePreview from '@/components/features/TemplatePreview';
 import TemplateEditor from '@/components/features/TemplateEditor';
 import { renderTemplate } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Template, templates as mockTemplates } from '@/data/mockData';
-import { Users, MessageSquareReply, Languages, Search, Plus, MoreHorizontal } from "lucide-react";
+import { Users, MessageSquareReply, Languages, Search, Plus, MoreHorizontal, Eye } from "lucide-react";
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,10 +13,28 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const Templates = () => {
+  const { t, i18n } = useTranslation();
   const [templates, setTemplates] = useState<Template[]>(mockTemplates);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [previewContent, setPreviewContent] = useState<string | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+
+      const handlePreviewClick = (e: React.MouseEvent, template: Template) => {
+    e.stopPropagation(); // Prevent the card's onClick from firing
+    setPreviewContent(renderTemplate(template));
+
+    const languageMap: { [key: string]: string } = {
+      English: 'en',
+      Spanish: 'es',
+      German: 'de',
+    };
+
+    const langCode = languageMap[template.language];
+    if (langCode && i18n.language !== langCode) {
+      i18n.changeLanguage(langCode);
+    }
+  };
 
   const handleCardClick = (template: Template) => {
     setSelectedTemplate(template);
@@ -40,11 +59,11 @@ const Templates = () => {
           {/* Header Section (not scrollable) */}
           <div className="flex-shrink-0">
             <div className="flex justify-between items-center mb-6">
-              <h1 className="text-3xl font-bold text-foreground flex-shrink-0">Templates</h1>
+              <h1 className="text-3xl font-bold text-foreground flex-shrink-0">{t('templates.header.title')}</h1>
               <div className="relative flex-1 max-w-md mx-8">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
-                  placeholder="Search templates..."
+                  placeholder={t('templates.searchPlaceholder')}
                   className="pl-10 bg-background/80 backdrop-blur-sm w-full"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -52,7 +71,7 @@ const Templates = () => {
               </div>
               <Button className="flex items-center gap-2 flex-shrink-0">
                 <Plus className="w-5 h-5" />
-                <span>Create Template</span>
+                <span>{t('templates.header.create')}</span>
               </Button>
             </div>
           </div>
@@ -72,19 +91,24 @@ const Templates = () => {
                         <CardTitle className="text-lg font-semibold text-foreground">{template.name}</CardTitle>
                         <Badge variant="secondary" className="mt-2 font-mono">v{template.version}</Badge>
                       </div>
-                      <DropdownMenu>
+                                            <div className="flex items-center">
+                        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={(e) => handlePreviewClick(e, template)}>
+                          <Eye className="h-4 w-4" />
+                        </Button>
+                        <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="icon" className="h-8 w-8">
                             <MoreHorizontal className="h-4 w-4" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>Edit</DropdownMenuItem>
-                          <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                          <DropdownMenuItem>View Stats</DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">Archive</DropdownMenuItem>
+                          <DropdownMenuItem>{t('templates.card.menu.edit')}</DropdownMenuItem>
+                          <DropdownMenuItem>{t('templates.card.menu.duplicate')}</DropdownMenuItem>
+                          <DropdownMenuItem>{t('templates.card.menu.viewStats')}</DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive">{t('templates.card.menu.archive')}</DropdownMenuItem>
                         </DropdownMenuContent>
-                      </DropdownMenu>
+                        </DropdownMenu>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
@@ -96,14 +120,14 @@ const Templates = () => {
                         <Users className="w-4 h-4 mr-2 text-primary" />
                         <span>{template.recipients.toLocaleString()}</span>
                       </TooltipTrigger>
-                      <TooltipContent>Users Reached</TooltipContent>
+                      <TooltipContent>{t('templates.card.tooltip.usersReached')}</TooltipContent>
                     </Tooltip>
                     <Tooltip>
                       <TooltipTrigger className="flex items-center">
                         <Languages className="w-4 h-4 mr-2 text-primary" />
                         <span>{template.language}</span>
                       </TooltipTrigger>
-                      <TooltipContent>Language</TooltipContent>
+                      <TooltipContent>{t('templates.card.tooltip.language')}</TooltipContent>
                     </Tooltip>
                   </CardFooter>
                 </Card>
@@ -115,7 +139,7 @@ const Templates = () => {
         {/* Right Column (takes 1/3 of the space) */}
         <div className="hidden lg:block lg:col-span-1 p-6">
           <div className="w-1/3 pl-8 sticky top-24 self-start">
-            <TemplatePreview templates={filteredTemplates} />
+            <TemplatePreview previewContent={previewContent} />
           </div>
         </div>
       </div>

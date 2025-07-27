@@ -237,5 +237,40 @@
         "description": "Tenant \"{{name}}\" created successfully."
       }
     }
+  },
+  "templates": {
+    "header": {
+      "title": "Templates",
+      "create": "Create Template"
+    },
+    "searchPlaceholder": "Search templates...",
+    "card": {
+      "menu": {
+        "edit": "Edit",
+        "duplicate": "Duplicate",
+        "viewStats": "View Stats",
+        "archive": "Archive"
+      },
+      "tooltip": {
+        "usersReached": "Users Reached",
+        "language": "Language"
+      }
+    }
+  },
+  "templateEditor": {
+    "title": "Edit Template",
+    "description": "Make changes to your template here. Click save when you're done.",
+    "templateNameLabel": "Template Name",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select category",
+    "languageLabel": "Language",
+    "languagePlaceholder": "Select language",
+    "contentEditorLabel": "Content Editor & Preview",
+    "contentPlaceholder": "Enter your template message here... Use {{param}} for variables.",
+    "testParametersTitle": "Test Parameters",
+    "testParametersDescription": "Fill in the fields below to see them in the live preview.",
+    "testParameterPlaceholder": "Example: John Doe",
+    "cancelButton": "Cancel",
+    "saveButton": "Save Changes"
   }
 }
