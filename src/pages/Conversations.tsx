@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { mockConversations, Conversation } from '@/data/mockData';
 import { cn } from '@/lib/utils';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ThreadsView from '@/components/features/conversations/ThreadsView';
 
 const statusColumns = [
   { id: 'waiting', title: 'Waiting', color: 'border-warning bg-warning/5' },
@@ -94,8 +96,17 @@ const Conversations = () => {
         />
       </div>
 
-      {/* Kanban Board */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 min-h-[600px]">
+      <Tabs defaultValue="board" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 max-w-[320px] mb-4">
+          <TabsTrigger value="threads">Threads</TabsTrigger>
+          <TabsTrigger value="board">Board</TabsTrigger>
+        </TabsList>
+        <TabsContent value="threads">
+          <ThreadsView />
+        </TabsContent>
+        <TabsContent value="board">
+          {/* Kanban Board */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 min-h-[600px]">
         {statusColumns.map((column) => {
           const conversations = getConversationsByStatus(column.id);
           return (
@@ -175,6 +186,8 @@ const Conversations = () => {
           );
         })}
       </div>
+        </TabsContent>
+      </Tabs>
 
       {/* Conversation Detail Modal */}
       <Dialog open={!!selectedConversation} onOpenChange={() => setSelectedConversation(null)}>
