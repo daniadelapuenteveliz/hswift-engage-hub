@@ -18,9 +18,11 @@ import {
 } from 'lucide-react';
 import { mockTenants, Tenant } from '@/data/mockData';
 import { useToast } from '@/hooks/use-toast';
+import { useTranslation } from 'react-i18next';
 
 const Tenants = () => {
-  const [tenants, setTenants] = useState<Tenant[]>(mockTenants);
+  const { t } = useTranslation();
+    const [tenants, setTenants] = useState<Tenant[]>(mockTenants);
   const [searchTerm, setSearchTerm] = useState('');
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [newTenant, setNewTenant] = useState({ name: '', description: '' });
@@ -34,8 +36,8 @@ const Tenants = () => {
   const handleCreateTenant = () => {
     if (!newTenant.name.trim()) {
       toast({
-        title: "Error",
-        description: "Tenant name is required.",
+        title: t('tenants.toast.error.title'),
+        description: t('tenants.toast.error.description'),
         variant: "destructive",
       });
       return;
@@ -55,8 +57,8 @@ const Tenants = () => {
     setIsCreateDialogOpen(false);
     
     toast({
-      title: "Success",
-      description: `Tenant "${tenant.name}" created successfully.`,
+      title: t('tenants.toast.success.title'),
+      description: t('tenants.toast.success.description', { name: tenant.name }),
     });
   };
 
@@ -75,9 +77,9 @@ const Tenants = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Tenants</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('tenants.header.title')}</h1>
           <p className="text-muted-foreground mt-1">
-            Manage your tenants and their conversational agents
+            {t('tenants.header.subtitle')}
           </p>
         </div>
         
@@ -85,28 +87,28 @@ const Tenants = () => {
           <DialogTrigger asChild>
             <Button className="bg-gradient-primary hover:opacity-90 transition-opacity">
               <Plus className="w-4 h-4 mr-2" />
-              Create Tenant
+              {t('tenants.create.button')}
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Create New Tenant</DialogTitle>
+              <DialogTitle>{t('tenants.create.dialog.title')}</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 mt-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Tenant Name</Label>
+                <Label htmlFor="name">{t('tenants.create.dialog.nameLabel')}</Label>
                 <Input
                   id="name"
-                  placeholder="Enter tenant name"
+                  placeholder={t('tenants.create.dialog.namePlaceholder')}
                   value={newTenant.name}
                   onChange={(e) => setNewTenant({ ...newTenant, name: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="description">{t('tenants.create.dialog.descriptionLabel')}</Label>
                 <Textarea
                   id="description"
-                  placeholder="Brief description of the tenant"
+                  placeholder={t('tenants.create.dialog.descriptionPlaceholder')}
                   value={newTenant.description}
                   onChange={(e) => setNewTenant({ ...newTenant, description: e.target.value })}
                 />
@@ -116,10 +118,10 @@ const Tenants = () => {
                   variant="outline" 
                   onClick={() => setIsCreateDialogOpen(false)}
                 >
-                  Cancel
+                  {t('tenants.create.dialog.cancel')}
                 </Button>
                 <Button onClick={handleCreateTenant}>
-                  Create Tenant
+                  {t('tenants.create.dialog.create')}
                 </Button>
               </div>
             </div>
@@ -131,7 +133,7 @@ const Tenants = () => {
       <div className="relative max-w-md">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
         <Input
-          placeholder="Search tenants..."
+          placeholder={t('tenants.searchPlaceholder')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-10"
@@ -156,7 +158,7 @@ const Tenants = () => {
                       </CardTitle>
                       <Badge className={getStatusColor(tenant.status)}>
                         <StatusIcon className="w-3 h-3 mr-1" />
-                        {tenant.status}
+                        {t(`tenants.status.${tenant.status}`)}
                       </Badge>
                     </div>
                   </div>
@@ -175,7 +177,7 @@ const Tenants = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Phone className="w-4 h-4" />
-                      Phone Numbers
+                      {t('tenants.card.phoneNumbers')}
                     </div>
                     <span className="text-sm font-medium">
                       {tenant.phoneNumbers.length}
@@ -185,7 +187,7 @@ const Tenants = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MessageSquare className="w-4 h-4" />
-                      Total Conversations
+                      {t('tenants.card.totalConversations')}
                     </div>
                     <span className="text-sm font-medium">
                       {tenant.phoneNumbers.reduce((sum, phone) => sum + phone.conversations, 0)}
@@ -196,12 +198,12 @@ const Tenants = () => {
                 {/* Phone Numbers */}
                 {tenant.phoneNumbers.length > 0 && (
                   <div className="space-y-2">
-                    <h4 className="text-sm font-medium text-foreground">Connected Numbers:</h4>
+                    <h4 className="text-sm font-medium text-foreground">{t('tenants.card.connectedNumbers')}:</h4>
                     {tenant.phoneNumbers.slice(0, 2).map((phone) => (
                       <div key={phone.id} className="flex items-center justify-between p-2 bg-muted/30 rounded-md">
                         <span className="text-sm font-mono">{phone.number}</span>
                         <Badge variant={phone.whatsappConnected ? "default" : "secondary"}>
-                          {phone.whatsappConnected ? 'Connected' : 'Disconnected'}
+                          {phone.whatsappConnected ? t('tenants.card.connected') : t('tenants.card.disconnected')}
                         </Badge>
                       </div>
                     ))}
@@ -215,10 +217,10 @@ const Tenants = () => {
 
                 <div className="flex gap-2 pt-2">
                   <Button variant="outline" size="sm" className="flex-1">
-                    Manage
+                    {t('tenants.card.manage')}
                   </Button>
                   <Button size="sm" className="flex-1 bg-gradient-primary hover:opacity-90">
-                    Configure
+                    {t('tenants.card.configure')}
                   </Button>
                 </div>
               </CardContent>

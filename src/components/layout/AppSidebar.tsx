@@ -12,6 +12,7 @@ import {
   Wrench
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Sidebar,
   SidebarContent,
@@ -26,21 +27,22 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 
-const navigationItems = [
-  { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Tenants", url: "/tenants", icon: Building2 },
-  { title: "Templates", url: "/templates", icon: FileText },
-  { title: "Agent Management", url: "/agent-management", icon: Bot },
-  { title: "APIs & Tools", url: "/apis-and-tools", icon: Wrench },
-  { title: "Conversations", url: "/conversations", icon: MessageSquare },
-  { title: "Users & Roles", url: "/users", icon: Users },
-  { title: "Analytics", url: "/analytics", icon: BarChart3 },
-  { title: "Membership", url: "/membership", icon: Crown },
-];
-
 export function AppSidebar() {
+  const { t } = useTranslation();
   const { state } = useSidebar();
   const location = useLocation();
+
+  const navigationItems = [
+    { title: t('sidebar.nav.dashboard'), url: "/dashboard", icon: Home },
+    { title: t('sidebar.nav.tenants'), url: "/tenants", icon: Building2 },
+    { title: t('sidebar.nav.templates'), url: "/templates", icon: FileText },
+    { title: t('sidebar.nav.agentManagement'), url: "/agent-management", icon: Bot },
+    { title: t('sidebar.nav.apisAndTools'), url: "/apis-and-tools", icon: Wrench },
+    { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
+    { title: t('sidebar.nav.usersAndRoles'), url: "/users", icon: Users },
+    { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
+    { title: t('sidebar.nav.membership'), url: "/membership", icon: Crown },
+  ];
   const currentPath = location.pathname;
   const collapsed = state === "collapsed";
 
@@ -56,7 +58,7 @@ export function AppSidebar() {
           {!collapsed && (
             <div>
               <h2 className="text-lg font-bold text-sidebar-foreground">HSwift</h2>
-              <p className="text-xs text-sidebar-foreground/70">Conversational Platform</p>
+              <p className="text-xs text-sidebar-foreground/70">{t('sidebar.header.subtitle')}</p>
             </div>
           )}
         </div>
@@ -68,7 +70,7 @@ export function AppSidebar() {
             "text-sidebar-foreground/60 uppercase text-xs font-semibold tracking-wider mb-2",
             collapsed && "sr-only"
           )}>
-            Main Navigation
+            {t('sidebar.mainNavigation')}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
@@ -105,10 +107,10 @@ export function AppSidebar() {
               <div className="bg-sidebar-accent/30 rounded-lg p-4 m-2">
                 <div className="flex items-center gap-2 mb-2">
                   <Crown className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-sidebar-foreground">Pro Plan</span>
+                  <span className="text-sm font-medium text-sidebar-foreground">{t('sidebar.proPlan.title')}</span>
                 </div>
                 <p className="text-xs text-sidebar-foreground/70">
-                  Unlimited conversations and advanced analytics
+                  {t('sidebar.proPlan.description')}
                 </p>
               </div>
             </SidebarGroupContent>

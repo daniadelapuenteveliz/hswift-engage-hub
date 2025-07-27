@@ -1,0 +1,242 @@
+{
+  "header": {
+    "title": "HSwift-Plattform",
+    "logout": "Abmelden"
+  },
+  "landingNav": {
+    "features": "Merkmale",
+    "pricing": "Preise",
+    "about": "Über uns",
+    "signIn": "Anmelden"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Revolutionieren Sie Ihre",
+      "title2": "Geschäftskommunikation",
+      "subtitle": "HSwift ermöglicht es Unternehmen, ihre Konversationserlebnisse durch intelligentes mandantenfähiges Agentenmanagement zu automatisieren, zu skalieren und zu optimieren.",
+      "badge": "🚀 KI-Konversationsplattform der nächsten Generation",
+      "cta": "Loslegen"
+    },
+    "watchDemo": "Demo ansehen",
+    "features": {
+      "title": "Alles, was Sie zum Skalieren von Konversationen benötigen",
+      "subtitle": "Leistungsstarke Funktionen, die Unternehmen jeder Größe dabei helfen, ihre konversationellen KI-Erlebnisse zu verwalten und zu optimieren.",
+      "list": [
+        {
+          "icon": "MessageSquare",
+          "title": "WhatsApp-Integration",
+          "description": "Verbinden und verwalten Sie nahtlos mehrere WhatsApp Business-Nummern mit erweiterter Automatisierung."
+        },
+        {
+          "icon": "Users",
+          "title": "Mandantenfähige Verwaltung",
+          "description": "Organisieren Sie Kunden, Telefonnummern und Konversationen in isolierten Mandantenumgebungen."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Erweiterte Analysen",
+          "description": "Verfolgen Sie Leistungskennzahlen, Antwortzeiten und Gesprächserfolgsquoten in Echtzeit."
+        },
+        {
+          "icon": "Zap",
+          "title": "Intelligente Automatisierung",
+          "description": "Erstellen Sie komplexe Gesprächsabläufe mit KI-gestützten Agentengraphen und Vorlagen."
+        },
+        {
+          "icon": "Shield",
+          "title": "Unternehmenssicherheit",
+          "description": "Rollenbasierte Zugriffskontrolle, sicheres API-Management und Einhaltung des Datenschutzes."
+        },
+        {
+          "icon": "Phone",
+          "title": "Omnichannel-Support",
+          "description": "Verwalten Sie Konversationen über mehrere Kanäle von einem einheitlichen Dashboard aus."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Einfache, transparente Preise",
+      "subtitle": "Wählen Sie den Plan, der den Anforderungen Ihres Unternehmens entspricht. Alle Pläne enthalten unsere Kernfunktionen mit steigenden Grenzwerten und erweiterten Möglichkeiten.",
+      "popular": "Beliebtester",
+      "perMonth": "/Monat",
+      "cta": "Loslegen",
+      "plans": [
+        {
+          "name": "Kostenlos",
+          "price": "$0",
+          "description": "Perfekt für kleine Unternehmen, die gerade anfangen",
+          "features": ["1 Mandant", "2 Telefonnummern", "Grundlegende Analysen", "Community-Support"],
+          "popular": false
+        },
+        {
+          "name": "Pro",
+          "price": "$49",
+          "description": "Erweiterte Funktionen für wachsende Unternehmen",
+          "features": ["5 Mandanten", "Unbegrenzte Telefonnummern", "Erweiterte Analysen", "Priorisierter Support", "Benutzerdefinierte Vorlagen"],
+          "popular": true
+        },
+        {
+          "name": "Premium",
+          "price": "$99",
+          "description": "Unternehmenslösung für große Organisationen",
+          "features": ["Unbegrenzte Mandanten", "White-Label-Lösung", "Benutzerdefinierte Integrationen", "24/7-Support", "SLA-Garantie"],
+          "popular": false
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Bereit, Ihre Kundengespräche zu transformieren?",
+      "subtitle": "Schließen Sie sich Tausenden von Unternehmen an, die HSwift bereits nutzen, um ihre WhatsApp-Kommunikation zu automatisieren und zu skalieren.",
+      "cta": "Kostenlose Testversion starten"
+    }
+  },
+  "login": {
+    "redirecting": "Weiterleitung zum Login..."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Willkommen zurück! Hier ist, was mit Ihren Gesprächen passiert.",
+    "stats": {
+      "totalConversations": "Gesamtgespräche",
+      "activeTenants": "Aktive Mandanten",
+      "avgResponseTime": "Ø Antwortzeit",
+      "successRate": "Erfolgsquote",
+      "tenantsThisMonth": "+{{count}} diesen Monat",
+      "fromLastMonth": "zum Vormonat"
+    },
+    "recentConversations": {
+      "title": "Letzte Gespräche",
+      "viewAll": "Alle Gespräche anzeigen",
+      "status": {
+        "waiting": "Wartend",
+        "bot_responding": "Bot antwortet",
+        "escalated": "Eskaliert",
+        "resolved": "Gelöst"
+      }
+    },
+    "activeTenants": {
+      "title": "Aktive Mandanten",
+      "manage": "Mandanten verwalten",
+      "status": {
+        "active": "Aktiv"
+      }
+    },
+    "quickActions": {
+      "title": "Schnellaktionen",
+      "createTenant": "Neuen Mandant erstellen"
+    }
+  },
+  "sidebar": {
+    "header": {
+      "subtitle": "Konversationsplattform"
+    },
+    "mainNavigation": "Hauptnavigation",
+    "nav": {
+      "dashboard": "Dashboard",
+      "tenants": "Mandanten",
+      "templates": "Vorlagen",
+      "agentManagement": "Agentenverwaltung",
+      "apisAndTools": "APIs & Werkzeuge",
+      "conversations": "Gespräche",
+      "usersAndRoles": "Benutzer & Rollen",
+      "analytics": "Analytik",
+      "membership": "Mitgliedschaft"
+    },
+    "proPlan": {
+      "title": "Pro Plan",
+      "description": "Unbegrenzte Gespräche und erweiterte Analysen"
+    }
+  },
+  "membership": {
+    "title": "Mitgliedschaft & Abrechnung",
+    "subtitle": "Verwalten Sie Ihr Abonnement, sehen Sie Rechnungen ein und verfolgen Sie Ihre Nutzung.",
+    "currentPlan": {
+      "title": "Aktueller Plan",
+      "description": "Sie nutzen derzeit den Pro-Plan.",
+      "upgrade": "Plan upgraden",
+      "perMonth": "/Monat",
+      "planDetails": "Ihr Plan beinhaltet unbegrenzte Agenten, {{count, number}} monatliche Gespräche und Premium-Support.",
+      "conversationsUsed": "Genutzte Gespräche"
+    },
+    "monthlySpending": {
+      "title": "Monatliche Ausgaben",
+      "description": "Ihre Ausgabenübersicht für die letzten 6 Monate."
+    },
+    "billingHistory": {
+      "title": "Abrechnungsverlauf",
+      "description": "Sehen und laden Sie Ihre vergangenen Rechnungen herunter.",
+      "table": {
+        "invoice": "Rechnung",
+        "date": "Datum",
+        "amount": "Betrag",
+        "status": "Status",
+        "action": "Aktion"
+      },
+      "status": {
+        "paid": "Bezahlt"
+      }
+    },
+    "billingDetails": {
+      "title": "Abrechnungsdetails",
+      "nextBillingDate": "Nächstes Abrechnungsdatum",
+      "paymentMethod": "Zahlungsmethode",
+      "cardEnding": "Visa endet mit {{last4}}",
+      "managePayment": "Zahlungsmethode verwalten"
+    },
+    "needHelp": {
+      "title": "Benötigen Sie Hilfe?",
+      "description": "Unser Team ist hier, um Ihnen bei Fragen zu Ihrem Plan oder Ihrer Abrechnung zu helfen.",
+      "contact": "Einen Manager kontaktieren"
+    }
+  },
+  "months": {
+    "january": "Januar",
+    "february": "Februar",
+    "march": "März",
+    "april": "April",
+    "may": "Mai",
+    "june": "Juni"
+  },
+  "tenants": {
+    "header": {
+      "title": "Mandanten",
+      "subtitle": "Verwalten Sie Ihre Mandanten und deren Konversationsagenten"
+    },
+    "create": {
+      "button": "Mandant erstellen",
+      "dialog": {
+        "title": "Neuen Mandant erstellen",
+        "nameLabel": "Mandantenname",
+        "namePlaceholder": "Mandantennamen eingeben",
+        "descriptionLabel": "Beschreibung",
+        "descriptionPlaceholder": "Kurze Beschreibung des Mandanten",
+        "cancel": "Abbrechen",
+        "create": "Mandant erstellen"
+      }
+    },
+    "searchPlaceholder": "Mandanten suchen...",
+    "card": {
+      "phoneNumbers": "Telefonnummern",
+      "totalConversations": "Gesamtgespräche",
+      "connectedNumbers": "Verbundene Nummern",
+      "connected": "Verbunden",
+      "disconnected": "Getrennt",
+      "manage": "Verwalten",
+      "configure": "Konfigurieren"
+    },
+    "toast": {
+      "error": {
+        "title": "Fehler",
+        "description": "Der Name des Mandanten ist erforderlich."
+      },
+      "success": {
+        "title": "Erfolg",
+        "description": "Mandant \"{{name}}\" erfolgreich erstellt."
+      }
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    }
+  }
+}

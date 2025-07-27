@@ -1,0 +1,242 @@
+{
+  "header": {
+    "title": "Plataforma HSwift",
+    "logout": "Cerrar Sesión"
+  },
+  "landingNav": {
+    "features": "Características",
+    "pricing": "Precios",
+    "about": "Nosotros",
+    "signIn": "Iniciar Sesión"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Revoluciona la Comunicación",
+      "title2": "de tu Negocio",
+      "subtitle": "HSwift permite a las empresas automatizar, escalar y optimizar sus experiencias conversacionales con una gestión de agentes multi-inquilino inteligente.",
+      "badge": "🚀 Plataforma de IA conversacional de nueva generación",
+      "cta": "Comenzar"
+    },
+    "watchDemo": "Ver Demo",
+    "features": {
+      "title": "Todo lo que necesitas para escalar conversaciones",
+      "subtitle": "Funciones potentes diseñadas para ayudar a empresas de todos los tamaños a gestionar y optimizar sus experiencias de IA conversacional.",
+      "list": [
+        {
+          "icon": "MessageSquare",
+          "title": "Integración con WhatsApp",
+          "description": "Conecta y gestiona sin problemas múltiples números de WhatsApp Business con automatización avanzada."
+        },
+        {
+          "icon": "Users",
+          "title": "Gestión Multi-inquilino",
+          "description": "Organiza clientes, números de teléfono y conversaciones en entornos de inquilinos aislados."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Analíticas Avanzadas",
+          "description": "Rastrea métricas de rendimiento, tiempos de respuesta y tasas de éxito de las conversaciones en tiempo real."
+        },
+        {
+          "icon": "Zap",
+          "title": "Automatización Inteligente",
+          "description": "Crea flujos de conversación complejos con grafos de agentes y plantillas impulsados por IA."
+        },
+        {
+          "icon": "Shield",
+          "title": "Seguridad Empresarial",
+          "description": "Control de acceso basado en roles, gestión segura de API y cumplimiento de la protección de datos."
+        },
+        {
+          "icon": "Phone",
+          "title": "Soporte Omnicanal",
+          "description": "Gestiona conversaciones a través de múltiples canales desde un único panel de control unificado."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Precios simples y transparentes",
+      "subtitle": "Elige el plan que se adapte a las necesidades de tu negocio. Todos los planes incluyen nuestras características principales con límites crecientes y capacidades avanzadas.",
+      "popular": "Más Popular",
+      "perMonth": "/mes",
+      "cta": "Comenzar",
+      "plans": [
+        {
+          "name": "Gratis",
+          "price": "$0",
+          "description": "Perfecto para pequeñas empresas que están empezando",
+          "features": ["1 inquilino", "2 números de teléfono", "Analíticas básicas", "Soporte comunitario"],
+          "popular": false
+        },
+        {
+          "name": "Pro",
+          "price": "$49",
+          "description": "Funciones avanzadas para empresas en crecimiento",
+          "features": ["5 inquilinos", "Números de teléfono ilimitados", "Analíticas avanzadas", "Soporte prioritario", "Plantillas personalizadas"],
+          "popular": true
+        },
+        {
+          "name": "Premium",
+          "price": "$99",
+          "description": "Solución de nivel empresarial para grandes organizaciones",
+          "features": ["Inquilinos ilimitados", "Solución de marca blanca", "Integraciones personalizadas", "Soporte 24/7", "Garantía de SLA"],
+          "popular": false
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "¿Listo para transformar las conversaciones con tus clientes?",
+      "subtitle": "Únete a miles de empresas que ya utilizan HSwift para automatizar y escalar su comunicación por WhatsApp.",
+      "cta": "Iniciar Prueba Gratuita"
+    }
+  },
+  "login": {
+    "redirecting": "Redirigiendo al inicio de sesión..."
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "subtitle": "¡Bienvenido de nuevo! Esto es lo que está sucediendo con tus conversaciones.",
+    "stats": {
+      "totalConversations": "Conversaciones Totales",
+      "activeTenants": "Inquilinos Activos",
+      "avgResponseTime": "Tiempo de Rsp. Promedio",
+      "successRate": "Tasa de Éxito",
+      "tenantsThisMonth": "+{{count}} este mes",
+      "fromLastMonth": "desde el mes pasado"
+    },
+    "recentConversations": {
+      "title": "Conversaciones Recientes",
+      "viewAll": "Ver Todas las Conversaciones",
+      "status": {
+        "waiting": "Esperando",
+        "bot_responding": "Bot Respondiendo",
+        "escalated": "Escalado",
+        "resolved": "Resuelto"
+      }
+    },
+    "activeTenants": {
+      "title": "Inquilinos Activos",
+      "manage": "Gestionar Inquilinos",
+      "status": {
+        "active": "Activo"
+      }
+    },
+    "quickActions": {
+      "title": "Acciones Rápidas",
+      "createTenant": "Crear Nuevo Inquilino"
+    }
+  },
+  "sidebar": {
+    "header": {
+      "subtitle": "Plataforma Conversacional"
+    },
+    "mainNavigation": "Navegación Principal",
+    "nav": {
+      "dashboard": "Panel de Control",
+      "tenants": "Inquilinos",
+      "templates": "Plantillas",
+      "agentManagement": "Gestión de Agentes",
+      "apisAndTools": "APIs y Herramientas",
+      "conversations": "Conversaciones",
+      "usersAndRoles": "Usuarios y Roles",
+      "analytics": "Analíticas",
+      "membership": "Membresía"
+    },
+    "proPlan": {
+      "title": "Plan Pro",
+      "description": "Conversaciones ilimitadas y analíticas avanzadas"
+    }
+  },
+  "membership": {
+    "title": "Membresía y Facturación",
+    "subtitle": "Gestiona tu suscripción, ve facturas y sigue tu uso.",
+    "currentPlan": {
+      "title": "Plan Actual",
+      "description": "Actualmente estás en el Plan Pro.",
+      "upgrade": "Mejorar Plan",
+      "perMonth": "/mes",
+      "planDetails": "Tu plan incluye agentes ilimitados, {{count, number}} conversaciones mensuales y soporte premium.",
+      "conversationsUsed": "Conversaciones Usadas"
+    },
+    "monthlySpending": {
+      "title": "Gasto Mensual",
+      "description": "Tu resumen de gastos de los últimos 6 meses."
+    },
+    "billingHistory": {
+      "title": "Historial de Facturación",
+      "description": "Ve y descarga tus facturas pasadas.",
+      "table": {
+        "invoice": "Factura",
+        "date": "Fecha",
+        "amount": "Monto",
+        "status": "Estado",
+        "action": "Acción"
+      },
+      "status": {
+        "paid": "Pagado"
+      }
+    },
+    "billingDetails": {
+      "title": "Detalles de Facturación",
+      "nextBillingDate": "Próxima Fecha de Facturación",
+      "paymentMethod": "Método de Pago",
+      "cardEnding": "Visa terminada en {{last4}}",
+      "managePayment": "Gestionar Método de Pago"
+    },
+    "needHelp": {
+      "title": "¿Necesitas Ayuda?",
+      "description": "Nuestro equipo está aquí para ayudarte con cualquier pregunta sobre tu plan o facturación.",
+      "contact": "Contactar a un Ejecutivo"
+    }
+  },
+  "months": {
+    "january": "Enero",
+    "february": "Febrero",
+    "march": "Marzo",
+    "april": "Abril",
+    "may": "Mayo",
+    "june": "Junio"
+  },
+  "tenants": {
+    "header": {
+      "title": "Inquilinos",
+      "subtitle": "Gestiona tus inquilinos y sus agentes conversacionales"
+    },
+    "create": {
+      "button": "Crear Inquilino",
+      "dialog": {
+        "title": "Crear Nuevo Inquilino",
+        "nameLabel": "Nombre del Inquilino",
+        "namePlaceholder": "Introduce el nombre del inquilino",
+        "descriptionLabel": "Descripción",
+        "descriptionPlaceholder": "Breve descripción del inquilino",
+        "cancel": "Cancelar",
+        "create": "Crear Inquilino"
+      }
+    },
+    "searchPlaceholder": "Buscar inquilinos...",
+    "card": {
+      "phoneNumbers": "Números de Teléfono",
+      "totalConversations": "Conversaciones Totales",
+      "connectedNumbers": "Números Conectados",
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "manage": "Gestionar",
+      "configure": "Configuración"
+    },
+    "toast": {
+      "error": {
+        "title": "Error",
+        "description": "El nombre del inquilino es obligatorio."
+      },
+      "success": {
+        "title": "Éxito",
+        "description": "Inquilino \"{{name}}\" creado con éxito."
+      }
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    }
+  }
+}

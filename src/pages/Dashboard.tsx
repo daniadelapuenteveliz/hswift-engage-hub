@@ -11,39 +11,43 @@ import {
   AlertCircle,
   Phone
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { mockAnalytics, mockTenants, mockConversations } from '@/data/mockData';
 
 const Dashboard = () => {
-  const stats = [
+  const { t } = useTranslation();
+    const stats = [
     {
-      title: 'Total Conversations',
+      title: t('dashboard.stats.totalConversations'),
       value: mockAnalytics.totalConversations.toLocaleString(),
       icon: MessageSquare,
       change: '+12%',
       changeType: 'positive' as const
     },
     {
-      title: 'Active Tenants',
+      title: t('dashboard.stats.activeTenants'),
       value: mockTenants.length.toString(),
       icon: Building2,
-      change: '+2 this month',
+      change: t('dashboard.stats.tenantsThisMonth', { count: 2 }),
       changeType: 'positive' as const
     },
     {
-      title: 'Avg Response Time',
+      title: t('dashboard.stats.avgResponseTime'),
       value: `${mockAnalytics.avgResponseTime}s`,
       icon: Clock,
       change: '-0.5s',
       changeType: 'positive' as const
     },
     {
-      title: 'Success Rate',
+      title: t('dashboard.stats.successRate'),
       value: `${mockAnalytics.successRate}%`,
       icon: TrendingUp,
       change: '+2.1%',
       changeType: 'positive' as const
     }
   ];
+
+
 
   const recentConversations = mockConversations.slice(0, 5);
 
@@ -71,9 +75,9 @@ const Dashboard = () => {
     <div className="p-6 space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+        <h1 className="text-3xl font-bold text-foreground">{t('dashboard.title')}</h1>
         <p className="text-muted-foreground mt-1">
-          Welcome back! Here's what's happening with your conversations.
+          {t('dashboard.subtitle')}
         </p>
       </div>
 
@@ -93,7 +97,7 @@ const Dashboard = () => {
                   <p className={`text-xs mt-1 ${
                     stat.changeType === 'positive' ? 'text-success' : 'text-destructive'
                   }`}>
-                    {stat.change} from last month
+                    {stat.change} {t('dashboard.stats.fromLastMonth')}
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -111,7 +115,7 @@ const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MessageSquare className="w-5 h-5" />
-              Recent Conversations
+              {t('dashboard.recentConversations.title')}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -132,7 +136,7 @@ const Dashboard = () => {
                   </div>
                   <div className="text-right">
                     <Badge className={getStatusColor(conversation.status)}>
-                      {conversation.status.replace('_', ' ')}
+                      {t(`dashboard.recentConversations.status.${conversation.status}`)}
                     </Badge>
                     <p className="text-xs text-muted-foreground mt-1">
                       {conversation.lastActivity}
@@ -142,7 +146,7 @@ const Dashboard = () => {
               );
             })}
             <Button variant="outline" className="w-full">
-              View All Conversations
+              {t('dashboard.recentConversations.viewAll')}
             </Button>
           </CardContent>
         </Card>
@@ -152,7 +156,7 @@ const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Building2 className="w-5 h-5" />
-              Active Tenants
+              {t('dashboard.activeTenants.title')}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -175,13 +179,13 @@ const Dashboard = () => {
                     {tenant.phoneNumbers.length}
                   </div>
                   <Badge variant="secondary" className="mt-1">
-                    {tenant.status}
+                    {t(`dashboard.activeTenants.status.${tenant.status.toLowerCase()}`)}
                   </Badge>
                 </div>
               </div>
             ))}
             <Button variant="outline" className="w-full">
-              Manage Tenants
+              {t('dashboard.activeTenants.manage')}
             </Button>
           </CardContent>
         </Card>
@@ -190,13 +194,13 @@ const Dashboard = () => {
       {/* Quick Actions */}
       <Card className="shadow-elegant border-border/50">
         <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
+          <CardTitle>{t('dashboard.quickActions.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Button className="h-auto p-4 flex flex-col items-center gap-2 bg-gradient-primary hover:opacity-90">
               <Building2 className="w-6 h-6" />
-              <span>Create New Tenant</span>
+              <span>{t('dashboard.quickActions.createTenant')}</span>
             </Button>
             <Button variant="outline" className="h-auto p-4 flex flex-col items-center gap-2">
               <MessageSquare className="w-6 h-6" />

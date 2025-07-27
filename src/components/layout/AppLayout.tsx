@@ -1,8 +1,10 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { useAuth } from "react-oidc-context";
+import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
 import { LogOut, User } from "lucide-react";
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { Badge } from "@/components/ui/badge";
 
 interface AppLayoutProps {
@@ -10,6 +12,7 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
+  const { t } = useTranslation();
   const { user, signoutRedirect } = useAuth();
 
   return (
@@ -23,17 +26,18 @@ export function AppLayout({ children }: AppLayoutProps) {
             <div className="flex items-center gap-4">
               <SidebarTrigger className="h-8 w-8" />
               <div className="text-lg font-semibold text-foreground">
-                HSwift Platform
+                {t('header.title')}
               </div>
             </div>
             
             <div className="flex items-center gap-4">
               {user && (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
                     <User className="w-4 h-4 text-muted-foreground" />
                     <span className="text-sm font-medium text-foreground">{user.profile.name}</span>
                   </div>
+                  <LanguageSwitcher />
                   <Button
                     variant="outline"
                     size="sm"
@@ -41,7 +45,7 @@ export function AppLayout({ children }: AppLayoutProps) {
                     className="flex items-center gap-2"
                   >
                     <LogOut className="w-4 h-4" />
-                    Logout
+                    {t('header.logout')}
                   </Button>
                 </div>
               )}

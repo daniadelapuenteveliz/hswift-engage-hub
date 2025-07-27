@@ -1,0 +1,241 @@
+{
+  "header": {
+    "title": "HSwift Platform",
+    "logout": "Logout"
+  },
+  "landingNav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "signIn": "Sign In"
+  },
+  "landing": {
+    "hero": {
+      "title1": "Revolutionize Your",
+      "title2": "Business Communication",
+      "subtitle": "HSwift empowers businesses to automate, scale, and optimize their conversational experiences with intelligent multi-tenant agent management.",
+      "badge": "🚀 Next-generation conversational AI platform",
+      "cta": "Get Started"
+    },
+    "watchDemo": "Watch Demo",
+    "features": {
+      "title": "Everything you need to scale conversations",
+      "subtitle": "Powerful features designed to help businesses of all sizes manage and optimize their conversational AI experiences.",
+      "list": [
+        {
+          "icon": "MessageSquare",
+          "title": "WhatsApp Integration",
+          "description": "Seamlessly connect and manage multiple WhatsApp Business numbers with advanced automation."
+        },
+        {
+          "icon": "Users",
+          "title": "Multi-Tenant Management",
+          "description": "Organize clients, phone numbers, and conversations in isolated tenant environments."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Advanced Analytics",
+          "description": "Track performance metrics, response times, and conversation success rates in real-time."
+        },
+        {
+          "icon": "Zap",
+          "title": "Intelligent Automation",
+          "description": "Create complex conversation flows with AI-powered agent graphs and templates."
+        },
+        {
+          "icon": "Shield",
+          "title": "Enterprise Security",
+          "description": "Role-based access control, secure API management, and data protection compliance."
+        },
+        {
+          "icon": "Phone",
+          "title": "Omnichannel Support",
+          "description": "Manage conversations across multiple channels from one unified dashboard."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Simple, transparent pricing",
+      "subtitle": "Choose the plan that fits your business needs. All plans include our core features with increasing limits and advanced capabilities.",
+      "popular": "Most Popular",
+      "perMonth": "/month",
+      "cta": "Get Started",
+      "plans": [
+        {
+          "name": "Free",
+          "price": "$0",
+          "description": "Perfect for small businesses getting started",
+          "features": ["1 tenant", "2 phone numbers", "Basic analytics", "Community support"],
+          "popular": false
+        },
+        {
+          "name": "Pro",
+          "price": "$49",
+          "description": "Advanced features for growing businesses",
+          "features": ["5 tenants", "Unlimited phone numbers", "Advanced analytics", "Priority support", "Custom templates"],
+          "popular": true
+        },
+        {
+          "name": "Premium",
+          "price": "$99",
+          "description": "Enterprise-grade solution for large organizations",
+          "features": ["Unlimited tenants", "White-label solution", "Custom integrations", "24/7 support", "SLA guarantee"],
+          "popular": false
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to transform your customer conversations?",
+      "subtitle": "Join thousands of businesses already using HSwift to automate and scale their WhatsApp communication.",
+      "cta": "Start Free Trial"
+    }
+  },
+  "login": {
+    "redirecting": "Redirecting to login..."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welcome back! Here's what's happening with your conversations.",
+    "stats": {
+      "totalConversations": "Total Conversations",
+      "activeTenants": "Active Tenants",
+      "avgResponseTime": "Avg Response Time",
+      "successRate": "Success Rate",
+      "tenantsThisMonth": "+{{count}} this month",
+      "fromLastMonth": "from last month"
+    },
+    "recentConversations": {
+      "title": "Recent Conversations",
+      "viewAll": "View All Conversations",
+      "status": {
+        "waiting": "Waiting",
+        "bot_responding": "Bot Responding",
+        "escalated": "Escalated",
+        "resolved": "Resolved"
+      }
+    },
+    "activeTenants": {
+      "title": "Active Tenants",
+      "manage": "Manage Tenants",
+      "status": {
+        "active": "Active"
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "createTenant": "Create New Tenant"
+    }
+  },
+  "sidebar": {
+    "header": {
+      "subtitle": "Conversational Platform"
+    },
+    "mainNavigation": "Main Navigation",
+    "nav": {
+      "dashboard": "Dashboard",
+      "tenants": "Tenants",
+      "templates": "Templates",
+      "agentManagement": "Agent Management",
+      "apisAndTools": "APIs & Tools",
+      "conversations": "Conversations",
+      "usersAndRoles": "Users & Roles",
+      "analytics": "Analytics",
+      "membership": "Membership"
+    },
+    "proPlan": {
+      "title": "Pro Plan",
+      "description": "Unlimited conversations and advanced analytics"
+    }
+  },
+  "membership": {
+    "title": "Membership & Billing",
+    "subtitle": "Manage your subscription, view invoices, and track your usage.",
+    "currentPlan": {
+      "title": "Current Plan",
+      "description": "You are currently on the Pro Plan.",
+      "upgrade": "Upgrade Plan",
+      "perMonth": "/month",
+      "planDetails": "Your plan includes unlimited agents, {{count, number}} monthly conversations, and premium support.",
+      "conversationsUsed": "Conversations Used"
+    },
+    "monthlySpending": {
+      "title": "Monthly Spending",
+      "description": "Your spending overview for the last 6 months."
+    },
+    "billingHistory": {
+      "title": "Billing History",
+      "description": "View and download your past invoices.",
+      "table": {
+        "invoice": "Invoice",
+        "date": "Date",
+        "amount": "Amount",
+        "status": "Status",
+        "action": "Action"
+      },
+      "status": {
+        "paid": "Paid"
+      }
+    },
+    "billingDetails": {
+      "title": "Billing Details",
+      "nextBillingDate": "Next Billing Date",
+      "paymentMethod": "Payment Method",
+      "cardEnding": "Visa ending in {{last4}}",
+      "managePayment": "Manage Payment Method"
+    },
+    "needHelp": {
+      "title": "Need Help?",
+      "description": "Our team is here to help you with any questions about your plan or billing.",
+      "contact": "Contact an Executive"
+    }
+  },
+  "months": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June"
+  },
+  "tenants": {
+    "header": {
+      "title": "Tenants",
+      "subtitle": "Manage your tenants and their configurations.",
+      "create": "Create Tenant"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "createDialog": {
+      "title": "Create New Tenant",
+      "description": "Enter the details for the new tenant.",
+      "nameLabel": "Tenant Name",
+      "namePlaceholder": "e.g., ACME Corporation",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Brief description of the tenant",
+      "cancel": "Cancel",
+      "create": "Create Tenant"
+    },
+    "searchPlaceholder": "Search tenants...",
+    "card": {
+      "phoneNumbers": "Phone Numbers",
+      "totalConversations": "Total Conversations",
+      "connectedNumbers": "Connected Numbers",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "manage": "Manage",
+      "configure": "Configure"
+    },
+    "toast": {
+      "error": {
+        "title": "Error",
+        "description": "Tenant name is required."
+      },
+      "success": {
+        "title": "Success",
+        "description": "Tenant \"{{name}}\" created successfully."
+      }
+    }
+  }
+}
