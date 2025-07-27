@@ -32,25 +32,57 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const location = useLocation();
 
-  const navigationItems = [
-    { title: t('sidebar.nav.dashboard'), url: "/dashboard", icon: Home },
+  const mainNavItems = [
     { title: t('sidebar.nav.tenants'), url: "/tenants", icon: Building2 },
-    { title: t('sidebar.nav.templates'), url: "/templates", icon: FileText },
-    { title: t('sidebar.nav.agentManagement'), url: "/agent-management", icon: Bot },
-    { title: t('sidebar.nav.apisAndTools'), url: "/apis-and-tools", icon: Wrench },
-    { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
     { title: t('sidebar.nav.usersAndRoles'), url: "/users", icon: Users },
-    { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
+    { title: t('sidebar.nav.apisAndTools'), url: "/apis-and-tools", icon: Wrench },
     { title: t('sidebar.nav.membership'), url: "/membership", icon: Crown },
   ];
+
+  const xtretrNavItems = [
+    { title: t('sidebar.nav.dashboard'), url: "/dashboard", icon: Home },
+    { title: t('sidebar.nav.templates'), url: "/templates", icon: FileText },
+    { title: t('sidebar.nav.agentManagement'), url: "/agent-management", icon: Bot },
+    { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
+    { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
+  ];
+
   const currentPath = location.pathname;
   const collapsed = state === "collapsed";
 
   const isActive = (path: string) => currentPath === path || currentPath.startsWith(path + '/');
 
+  const renderNavItems = (items: typeof mainNavItems) => (
+    <SidebarMenu className="space-y-1">
+      {items.map((item) => (
+        <SidebarMenuItem key={item.title}>
+          <SidebarMenuButton asChild>
+            <NavLink
+              to={item.url}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 group",
+                "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                isActive(item.url) && 
+                "bg-sidebar-primary text-sidebar-primary-foreground shadow-md"
+              )}
+            >
+              <item.icon className={cn(
+                "w-5 h-5 transition-transform group-hover:scale-110",
+                isActive(item.url) && "scale-110"
+              )} />
+              {!collapsed && (
+                <span className="font-medium">{item.title}</span>
+              )}
+            </NavLink>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      ))}
+    </SidebarMenu>
+  );
+
   return (
     <Sidebar className="border-r border-sidebar-border transition-all duration-300">
-      <SidebarHeader className="border-b border-sidebar-border p-4">
+      <SidebarHeader className="border-b border-sidebar-border ">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
             <Phone className="w-5 h-5 text-white" />
@@ -73,31 +105,21 @@ export function AppSidebar() {
             {t('sidebar.mainNavigation')}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-1">
-              {navigationItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      className={cn(
-                        "flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 group",
-                        "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                        isActive(item.url) && 
-                        "bg-sidebar-primary text-sidebar-primary-foreground shadow-md"
-                      )}
-                    >
-                      <item.icon className={cn(
-                        "w-5 h-5 transition-transform group-hover:scale-110",
-                        isActive(item.url) && "scale-110"
-                      )} />
-                      {!collapsed && (
-                        <span className="font-medium">{item.title}</span>
-                      )}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+            {renderNavItems(mainNavItems)}
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <div className="my-2 border-t border-sidebar-border/50" />
+
+        <SidebarGroup>
+          <SidebarGroupLabel className={cn(
+            "text-sidebar-foreground/60 uppercase text-xs font-semibold tracking-wider my-2",
+            collapsed && "sr-only"
+          )}>
+            {t('sidebar.xtretrNavigation')}
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            {renderNavItems(xtretrNavItems)}
           </SidebarGroupContent>
         </SidebarGroup>
 

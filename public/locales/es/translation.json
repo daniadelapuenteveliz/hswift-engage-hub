@@ -14,7 +14,7 @@
       "title1": "Revoluciona la Comunicación",
       "title2": "de tu Negocio",
       "subtitle": "HSwift permite a las empresas automatizar, escalar y optimizar sus experiencias conversacionales con una gestión de agentes multi-inquilino inteligente.",
-      "badge": "🚀 Plataforma de IA conversacional de nueva generación",
+      "badge": " Plataforma de IA conversacional de nueva generación",
       "cta": "Comenzar"
     },
     "watchDemo": "Ver Demo",
@@ -131,6 +131,7 @@
       "subtitle": "Plataforma Conversacional"
     },
     "mainNavigation": "Navegación Principal",
+    "xtretrNavigation": "XTRETR",
     "nav": {
       "dashboard": "Panel de Control",
       "tenants": "Inquilinos",
@@ -139,12 +140,12 @@
       "apisAndTools": "APIs y Herramientas",
       "conversations": "Conversaciones",
       "usersAndRoles": "Usuarios y Roles",
-      "analytics": "Analíticas",
+      "analytics": "Análisis",
       "membership": "Membresía"
     },
     "proPlan": {
       "title": "Plan Pro",
-      "description": "Conversaciones ilimitadas y analíticas avanzadas"
+      "description": "Conversaciones ilimitadas y análisis avanzados"
     }
   },
   "usersAndRoles": {
@@ -184,57 +185,45 @@
       },
       "roleDescriptions": {
         "admin": "Acceso completo a todas las funciones y configuraciones.",
-        "editor": "Puede crear y gestionar plantillas y agentes.",
-        "agent": "Interactúa con conversaciones, acceso limitado.",
-        "viewer": "Acceso de solo lectura a paneles y analíticas.",
-        "system": "Procesos internos del sistema."
-      }
-    },
-    "permissions": {
-      "template_management": {
-        "label": "Gestión de Plantillas",
-        "create": "Crear Plantillas",
-        "edit": "Editar Plantillas",
-        "delete": "Eliminar Plantillas",
-        "view": "Ver Plantillas"
+        "editor": "Puede crear y editar contenido, pero no gestionar la configuración.",
+        "agent": "Puede gestionar conversaciones e interactuar con los clientes.",
+        "viewer": "Acceso de solo lectura a conversaciones y análisis.",
+        "system": "Rol interno del sistema con permisos específicos."
       },
-      "user_management": {
-        "label": "Gestión de Usuarios",
-        "create": "Crear Usuarios",
-        "edit": "Editar Roles",
-        "delete": "Eliminar Usuarios",
-        "view": "Ver Usuarios y Roles"
-      },
-      "billing": {
-        "label": "Facturación",
-        "permissions": {
-          "view": "Ver Facturación",
-          "manage": "Gestionar Facturación"
-        }
+      "permissions": {
+        "manageUsers": "Gestionar Usuarios",
+        "manageRoles": "Gestionar Roles",
+        "manageTenants": "Gestionar Inquilinos",
+        "viewConversations": "Ver Conversaciones",
+        "manageConversations": "Gestionar Conversaciones",
+        "viewAnalytics": "Ver Análisis",
+        "manageBilling": "Gestionar Facturación",
+        "manageTemplates": "Gestionar Plantillas"
       }
     }
   },
   "conversations": {
-    "title": "Conversaciones",
-    "description": "Monitorea y gestiona todas las conversaciones con clientes",
-    "filter": "Filtrar",
-    "export": "Exportar",
+    "header": {
+      "title": "Bandeja de Entrada Unificada",
+      "description": "Todas tus conversaciones en un solo lugar. Responde, resuelve y colabora.",
+      "newConversation": "Nueva Conversación"
+    },
     "searchPlaceholder": "Buscar conversaciones...",
     "tabs": {
-      "threads": "Hilos",
-      "board": "Tablero"
+      "all": "Todas",
+      "unread": "No leídas",
+      "mentions": "Menciones"
     },
     "board": {
-      "columns": {
-        "waiting": "En espera",
-        "bot_responding": "Bot respondiendo",
-        "escalated": "Escalado",
-        "resolved": "Resuelto"
-      },
-      "noConversations": "No hay conversaciones"
+      "noConversations": "No se encontraron conversaciones en este estado.",
+      "messageCount_one": "{{count}} mensaje",
+      "messageCount_other": "{{count}} mensajes"
     },
-    "card": {
-      "messagesSuffix": "msjs"
+    "status": {
+      "waiting": "Esperando",
+      "bot_responding": "Bot Respondiendo",
+      "escalated": "Escalado",
+      "resolved": "Resuelto"
     },
     "details": {
       "title": "Detalles de la Conversación"
@@ -243,10 +232,10 @@
   "apisAndTools": {
     "header": {
       "title": "Conecta, Automatiza, Triunfa.",
-      "description": "Integra tus herramientas favoritas en minutos y crea flujos de trabajo sin esfuerzo. Desde notificaciones en Slack hasta APIs personalizadas, HSwift es tu centro de comando.",
+      "description": "Integra tus herramientas favoritas en minutos y crea flujos de trabajo sin esfuerzo. Desde notificaciones de Slack hasta API personalizadas, HSwift es tu centro de mando.",
       "howItWorks": "¿Cómo funciona?",
-      "step1": "<b>Conecta con un clic:</b> Elige de nuestra creciente lista de aplicaciones y autoriza la conexión. ¡Así de fácil!",
-      "step2": "<b>Crea tu propia API:</b> Define tus propios endpoints como en Postman para construir integraciones a medida. Sin límites."
+      "step1": "<b>Conexión con un clic:</b> Elige de nuestra creciente lista de aplicaciones y autoriza la conexión. ¡Así de simple!",
+      "step2": "<b>Usa tu propia API:</b> Define tus propios puntos finales como en Postman para crear integraciones personalizadas. Sin límites."
     },
     "integrations": {
       "title": "Integraciones Disponibles",
@@ -256,7 +245,7 @@
         "available": "Disponible"
       },
       "buttons": {
-        "manage": "Administrar",
+        "manage": "Gestionar",
         "connect": "Conectar"
       },
       "items": {
@@ -264,16 +253,16 @@
           "name": "Integración Boe",
           "description": "API personalizada para operaciones internas y flujos de trabajo automatizados.",
           "stats": {
-            "endpoints": "Endpoints",
-            "failureRate": "Tasa de Fallo",
-            "uptime": "Uptime"
+            "endpoints": "Puntos Finales",
+            "failureRate": "Tasa de Fallos",
+            "uptime": "Tiempo de Actividad"
           }
         },
         "slack": {
           "name": "Slack",
           "description": "Envía notificaciones y alertas directamente a los canales de tu equipo.",
           "stats": {
-            "workspaces": "Workspaces",
+            "workspaces": "Espacios de Trabajo",
             "activeChannels": "Canales Activos"
           }
         },
@@ -285,7 +274,7 @@
     },
     "toolSets": {
       "title": "Conjuntos de Herramientas",
-      "description": "Paquetes pre-construidos de herramientas para mejorar las capacidades de tus agentes.",
+      "description": "Paquetes preconstruidos de herramientas para mejorar las capacidades de tus agentes.",
       "status": {
         "installed": "Instalado",
         "available": "Disponible"
@@ -297,11 +286,11 @@
       "items": {
         "boe": {
           "name": "Herramientas Boe",
-          "description": "Una colección de herramientas para interactuar con la API de Boe, incluyendo gestión de usuarios y procesamiento de pedidos."
+          "description": "Una colección de herramientas para interactuar con la API de Boe, incluida la gestión de usuarios y el procesamiento de pedidos."
         },
         "search": {
           "name": "Herramienta de Búsqueda en Internet",
-          "description": "Una potente herramienta para realizar búsquedas web y obtener información actualizada de internet."
+          "description": "Una potente herramienta para realizar búsquedas en la web y obtener información actualizada de Internet."
         }
       }
     }
@@ -330,20 +319,22 @@
     }
   },
   "analytics": {
-    "title": "Analíticas",
+    "title": "Análisis",
     "nav": {
       "bots": "Bots",
       "templates": "Plantillas",
       "general": "General",
-      "assistant": "Asistente de IA"
+      "conversations": "Conversaciones",
+      "agents": "Agentes"
     },
     "bots": {
-      "title": "Analíticas del Agente",
+      "title": "Análisis del Agente",
       "selectAgent": "Seleccionar un Agente",
       "executions": "Ejecuciones:",
       "conversion": "Conversión:"
     },
     "templates": {
+      "title": "Análisis de Plantillas",
       "title": "Analíticas de Plantillas",
       "description": "Métricas de rendimiento para tus plantillas de mensajes.",
       "templateName": "Nombre de la Plantilla",
