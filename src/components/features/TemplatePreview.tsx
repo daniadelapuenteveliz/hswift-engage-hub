@@ -1,74 +1,44 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import { renderTemplate } from '@/lib/utils';
 import { Template } from '../../data/mockData';
 
-interface TemplatePreviewProps {
-  templates: Template[];
+export interface TemplatePreviewRef {
+  addTemplateMessage: (template: Template) => void;
 }
 
-const TemplatePreview: React.FC<TemplatePreviewProps> = ({ templates }) => {
-    type Message = { id: number; text: string; sender: 'me' | 'them'; time: string };
+interface TemplatePreviewProps {}
+
+const TemplatePreview = forwardRef<TemplatePreviewRef, TemplatePreviewProps>((props, ref) => {
+  type Message = { id: number; text: string; sender: 'me' | 'them'; time: string };
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    addTemplateMessage: (template: Template) => {
+      const newMessage: Message = {
+        id: Date.now(),
+        text: renderTemplate(template),
+        sender: 'them',
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      };
+
+      setMessages(prevMessages => {
+        const updatedMessages = [...prevMessages, newMessage];
+        if (updatedMessages.length > 10) {
+          return updatedMessages.slice(updatedMessages.length - 10);
+        }
+        return updatedMessages;
+      });
+    }
+  }));
 
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [messages]);
-
-  useEffect(() => {
-    // Set a static base message initially
-    setMessages([
-      {
-        id: 1,
-        text: '¡Hola! Gracias por contactarnos. ¿En qué podemos ayudarte hoy?',
-        sender: 'them',
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      },
-    ]);
-
-    if (templates.length === 0) return;
-
-    let timeoutId: NodeJS.Timeout;
-
-    const scheduleNextMessage = () => {
-      // Set a random delay between 30 and 40 seconds
-      const randomDelay = Math.floor(Math.random() * (40000 - 30000 + 1)) + 30000;
-
-      timeoutId = setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * templates.length);
-        const randomTemplate = templates[randomIndex];
-        const newMessage: Message = {
-          id: Date.now(),
-          text: renderTemplate(randomTemplate),
-          sender: 'them',
-          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        };
-
-        setMessages(prevMessages => {
-          const updatedMessages = [...prevMessages, newMessage];
-          // Keep the message stack at a maximum of 10
-          if (updatedMessages.length > 10) {
-            return updatedMessages.slice(updatedMessages.length - 10);
-          }
-          return updatedMessages;
-        });
-
-        scheduleNextMessage();
-      }, randomDelay);
-    };
-
-    // Start the message scheduling after a short initial delay
-    const initialTimeoutId = setTimeout(scheduleNextMessage, 2000);
-
-    return () => {
-        clearTimeout(initialTimeoutId);
-        clearTimeout(timeoutId);
-    };
-  }, [templates]);
 
   const handleSendMessage = () => {
     if (inputValue.trim() === '') return;
@@ -151,6 +121,6 @@ const TemplatePreview: React.FC<TemplatePreviewProps> = ({ templates }) => {
       </div>
     </div>
   );
-};
+});
 
 export default TemplatePreview;

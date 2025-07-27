@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import TemplatePreview from '@/components/features/TemplatePreview';
+import { useState, useRef } from 'react';
+import TemplatePreview, { TemplatePreviewRef } from '@/components/features/TemplatePreview';
 import TemplateEditor from '@/components/features/TemplateEditor';
 import { renderTemplate } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Template, templates as mockTemplates } from '@/data/mockData';
-import { Users, MessageSquareReply, Languages, Search, Plus, MoreHorizontal } from "lucide-react";
+import { Users, MessageSquareReply, Languages, Search, Plus, MoreHorizontal, Eye } from "lucide-react";
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +16,7 @@ const Templates = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const templatePreviewRef = useRef<TemplatePreviewRef>(null);
 
   const handleCardClick = (template: Template) => {
     setSelectedTemplate(template);
@@ -24,8 +25,14 @@ const Templates = () => {
 
   const handleCloseEditor = () => {
     setIsEditorOpen(false);
-    // Delay clearing the template to allow the closing animation to finish smoothly
     setTimeout(() => setSelectedTemplate(null), 300);
+  };
+
+  const handlePreviewClick = (e: React.MouseEvent, template: Template) => {
+    e.stopPropagation();
+    if (templatePreviewRef.current) {
+      templatePreviewRef.current.addTemplateMessage(template);
+    }
   };
 
   const filteredTemplates = templates.filter(template =>
@@ -35,9 +42,7 @@ const Templates = () => {
   return (
     <TooltipProvider>
       <div className="grid grid-cols-1 lg:grid-cols-3 h-[calc(100vh-var(--header-height))] bg-gray-50 dark:bg-gray-900/50">
-        {/* Left Column (takes 2/3 of the space) */}
         <div className="lg:col-span-2 p-6 flex flex-col h-full">
-          {/* Header Section (not scrollable) */}
           <div className="flex-shrink-0">
             <div className="flex justify-between items-center mb-6">
               <h1 className="text-3xl font-bold text-foreground flex-shrink-0">Templates</h1>
@@ -57,7 +62,6 @@ const Templates = () => {
             </div>
           </div>
 
-          {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto pr-4 -mr-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredTemplates.map((template, index) => (
@@ -72,19 +76,36 @@ const Templates = () => {
                         <CardTitle className="text-lg font-semibold text-foreground">{template.name}</CardTitle>
                         <Badge variant="secondary" className="mt-2 font-mono">v{template.version}</Badge>
                       </div>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <MoreHorizontal className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem>Edit</DropdownMenuItem>
-                          <DropdownMenuItem>Duplicate</DropdownMenuItem>
-                          <DropdownMenuItem>View Stats</DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive">Archive</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      <div className="flex items-center">
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8"
+                              onClick={(e) => handlePreviewClick(e, template)}
+                            >
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Preview</p>
+                          </TooltipContent>
+                        </Tooltip>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="icon" className="h-8 w-8">
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem>Edit</DropdownMenuItem>
+                            <DropdownMenuItem>Duplicate</DropdownMenuItem>
+                            <DropdownMenuItem>View Stats</DropdownMenuItem>
+                            <DropdownMenuItem className="text-destructive">Archive</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
@@ -112,10 +133,9 @@ const Templates = () => {
           </div>
         </div>
 
-        {/* Right Column (takes 1/3 of the space) */}
         <div className="hidden lg:block lg:col-span-1 p-6">
           <div className="w-1/3 pl-8 sticky top-24 self-start">
-            <TemplatePreview templates={filteredTemplates} />
+            <TemplatePreview ref={templatePreviewRef} />
           </div>
         </div>
       </div>
