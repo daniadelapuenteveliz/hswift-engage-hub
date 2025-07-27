@@ -23,17 +23,22 @@ export interface PhoneNumber {
   id: string;
   number: string;
   whatsappConnected: boolean;
-  templates: MessageTemplate[];
+  templates?: Template[];
   conversations: number;
 }
 
-export interface MessageTemplate {
+
+
+export interface Template {
   id: string;
   name: string;
   content: string;
-  variables: string[];
-  category: string;
+  recipients: number;
+  language: string;
   status: 'approved' | 'pending' | 'rejected';
+  category: 'Marketing' | 'Utility' | 'Authentication';
+  version: string;
+  examples?: { [key: string]: string };
 }
 
 export interface Conversation {
@@ -90,24 +95,7 @@ export const mockTenants: Tenant[] = [
         id: '1',
         number: '+1-555-0101',
         whatsappConnected: true,
-        templates: [
-          {
-            id: '1',
-            name: 'Welcome Message',
-            content: 'Hello {{name}}! Welcome to our store. How can we help you today?',
-            variables: ['name'],
-            category: 'greeting',
-            status: 'approved'
-          },
-          {
-            id: '2',
-            name: 'Order Status',
-            content: 'Your order {{order_id}} is {{status}}. Expected delivery: {{date}}',
-            variables: ['order_id', 'status', 'date'],
-            category: 'order',
-            status: 'approved'
-          }
-        ],
+
         conversations: 156
       }
     ],
@@ -123,21 +111,104 @@ export const mockTenants: Tenant[] = [
         id: '2',
         number: '+1-555-0102',
         whatsappConnected: true,
-        templates: [
-          {
-            id: '3',
-            name: 'Appointment Reminder',
-            content: 'Hi {{patient_name}}, this is a reminder for your appointment on {{date}} at {{time}}.',
-            variables: ['patient_name', 'date', 'time'],
-            category: 'reminder',
-            status: 'approved'
-          }
-        ],
+
         conversations: 89
       }
     ],
     createdAt: '2024-02-15',
     status: 'active'
+  }
+];
+
+// Mock Templates
+export const templates: Template[] = [
+  {
+    id: 'tpl_001',
+    name: 'Bienvenida a Nuevos Usuarios',
+    content: '¡Hola {{nombre}}! Bienvenido a nuestra comunidad. Estamos felices de tenerte con nosotros.',
+    recipients: 1250,
+    language: 'Español',
+    status: 'approved',
+    category: 'Marketing',
+    version: '1.2',
+    examples: { nombre: 'Ana' },
+  },
+  {
+    id: 'tpl_002',
+    name: 'Recordatorio de Carrito Abandonado',
+    content: '¡Hola {{nombre}}! Notamos que dejaste algunos artículos en tu carrito. ¡Completa tu compra ahora y obtén un 10% de descuento!',
+    recipients: 890,
+    language: 'Español',
+    status: 'approved',
+    category: 'Marketing',
+    version: '1.5',
+    examples: { nombre: 'Carlos' },
+  },
+  {
+    id: 'tpl_003',
+    name: 'Confirmación de Pedido',
+    content: 'Tu pedido #{{numero_pedido}} ha sido confirmado. Lo recibirás en los próximos 3-5 días hábiles. ¡Gracias por tu compra!',
+    recipients: 4320,
+    language: 'Español',
+    status: 'approved',
+    category: 'Utility',
+    version: '2.0',
+    examples: { numero_pedido: '987654' },
+  },
+  {
+    id: 'tpl_005',
+    name: 'Oferta Especial de Aniversario',
+    content: '¡Feliz aniversario, {{nombre}}! Como cliente fiel, te ofrecemos un 25% de descuento en tu próxima compra con el código ANIVERSARIO25.',
+    recipients: 650,
+    language: 'Español',
+    status: 'pending',
+    category: 'Marketing',
+    version: '1.1',
+    examples: { nombre: 'Elena' },
+  },
+  {
+    id: 'tpl_006',
+    name: 'Notificación de Envío',
+    content: '¡Buenas noticias! Tu pedido #{{numero_pedido}} ha sido enviado. Puedes rastrearlo aquí: {{enlace_rastreo}}',
+    recipients: 4100,
+    language: 'English',
+    status: 'approved',
+    category: 'Utility',
+    version: '1.8',
+    examples: { numero_pedido: '112233', enlace_rastreo: 'https://bit.ly/3xyzABC' },
+  },
+  {
+    id: 'tpl_007',
+    name: 'Encuesta de Satisfacción',
+    content: 'Hola {{nombre}}, ¿podrías calificar tu experiencia con nuestro servicio? Tu opinión es muy importante para nosotros. {{enlace_encuesta}}',
+    recipients: 3200,
+    language: 'Español',
+    status: 'approved',
+    category: 'Utility',
+    version: '1.3',
+    examples: { nombre: 'David', enlace_encuesta: 'https://forms.gle/xyz123' },
+  },
+  {
+    id: 'tpl_004',
+    name: 'Código de Verificación',
+    content: 'Tu código de verificación es: {{codigo}}. No lo compartas con nadie.',
+    recipients: 7650,
+    language: 'English',
+    status: 'approved',
+    category: 'Authentication',
+    version: '1.0',
+    examples: { codigo: 'G-123456' },
+  },
+  {
+    id: 'tpl_008',
+    name: 'Password Reset Request',
+    content: 'We received a request to reset your password. If you did not make this request, please ignore this message. Otherwise, use this code: {{reset_code}}',
+    recipients: 540,
+    language: 'English',
+    status: 'rejected',
+    category: 'Authentication',
+    version: '1.0',
+    examples: { reset_code: '987-123' },
   }
 ];
 
