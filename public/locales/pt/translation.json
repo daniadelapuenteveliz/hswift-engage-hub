@@ -1,0 +1,206 @@
+{
+  "home": {
+    "title": "Bem-vindo ao HSwift Engage Hub",
+    "description": "Sua solução centralizada para interações com clientes."
+  },
+  "sidebar": {
+    "dashboard": "Painel",
+    "conversations": "Conversas",
+    "usersAndRoles": "Usuários e Funções",
+    "apisAndTools": "APIs e Ferramentas",
+    "agentManagement": "Gerenciamento de Agentes",
+    "analytics": "Análises",
+    "tenants": "Inquilinos",
+    "settings": "Configurações",
+    "logout": "Sair"
+  },
+  "usersAndRoles": {
+    "header": {
+      "title": "Usuários e Funções",
+      "description": "Gerencie quem tem acesso e o que eles podem fazer.",
+      "inviteUser": "Convidar Usuário"
+    },
+    "tabs": {
+      "users": "Usuários",
+      "roles": "Funções"
+    },
+    "search": {
+      "users": "Buscar usuários...",
+      "roles": "Buscar funções..."
+    },
+    "usersTable": {
+      "columns": {
+        "user": "Usuário",
+        "role": "Função",
+        "type": "Tipo",
+        "actions": "Ações"
+      },
+      "actions": {
+        "edit": "Editar",
+        "deactivate": "Desativar"
+      },
+      "userTypes": {
+        "human": "Humano",
+        "bot": "Bot"
+      }
+    },
+    "roles": {
+      "admin": {
+        "name": "Admin",
+        "description": "Acesso total a todos os recursos e configurações."
+      },
+      "agent": {
+        "name": "Agente",
+        "description": "Pode gerenciar conversas e interagir com clientes."
+      },
+      "viewer": {
+        "name": "Visualizador",
+        "description": "Acesso somente leitura a conversas e análises."
+      }
+    },
+    "permissions": {
+      "title": "Permissões para",
+      "agentManagement": {
+        "title": "Gerenciamento de Agentes",
+        "description": "Criar, editar e gerenciar agentes de IA."
+      },
+      "viewConversations": {
+        "title": "Visualizar Conversas",
+        "description": "Acesso para ver todas as conversas de clientes."
+      },
+      "manageBilling": {
+        "title": "Gerenciar Faturamento",
+        "description": "Visualizar e gerenciar informações de faturamento e assinaturas."
+      },
+      "viewAnalytics": {
+        "title": "Visualizar Análises",
+        "description": "Acesso aos painéis de análise de desempenho."
+      }
+    }
+  },
+  "conversations": {
+    "header": {
+      "title": "Caixa de Entrada Unificada",
+      "description": "Todas as suas conversas em um só lugar. Responda, resolva e colabore.",
+      "newConversation": "Nova Conversa"
+    },
+    "searchPlaceholder": "Buscar conversas...",
+    "tabs": {
+      "all": "Todas",
+      "unread": "Não lidas",
+      "mentions": "Menções"
+    },
+    "board": {
+      "noConversations": "Nenhuma conversa encontrada neste status.",
+      "messageCount": "mensagens"
+    },
+    "status": {
+      "waiting": "Aguardando",
+      "bot_responding": "Bot Respondendo",
+      "escalated": "Escalada",
+      "resolved": "Resolvida"
+    },
+    "details": {
+      "title": "Detalhes da Conversa"
+    }
+  },
+  "apisAndTools": {
+    "header": {
+      "title": "Conecte, Automatize, Tenha Sucesso.",
+      "description": "Integre suas ferramentas favoritas em minutos e crie fluxos de trabalho sem esforço. De notificações no Slack a APIs personalizadas, o HSwift é seu centro de comando.",
+      "howItWorks": "Como funciona?",
+      "step1": "<b>Conecte com um clique:</b> Escolha da nossa crescente lista de aplicativos e autorize a conexão. Simples assim!",
+      "step2": "<b>Crie sua própria API:</b> Defina seus próprios endpoints como no Postman para construir integrações personalizadas. Sem limites."
+    },
+    "integrations": {
+      "title": "Integrações Disponíveis",
+      "connectNewTool": "Conectar Nova Ferramenta",
+      "status": {
+        "connected": "Conectado",
+        "available": "Disponível"
+      },
+      "buttons": {
+        "manage": "Gerenciar",
+        "connect": "Conectar"
+      },
+      "items": {
+        "boe": {
+          "name": "Integração Boe",
+          "description": "API personalizada para operações internas e fluxos de trabalho automatizados.",
+          "stats": {
+            "endpoints": "Endpoints",
+            "failureRate": "Taxa de Falha",
+            "uptime": "Tempo de Atividade"
+          }
+        },
+        "slack": {
+          "name": "Slack",
+          "description": "Envie notificações e alertas diretamente para os canais da sua equipe.",
+          "stats": {
+            "workspaces": "Workspaces",
+            "activeChannels": "Canais Ativos"
+          }
+        },
+        "zendesk": {
+          "name": "Zendesk",
+          "description": "Sincronize conversas e tickets com sua plataforma de suporte ao cliente."
+        }
+      }
+    },
+    "toolSets": {
+      "title": "Conjuntos de Ferramentas",
+      "description": "Pacotes pré-construídos de ferramentas para aprimorar as capacidades de seus agentes.",
+      "status": {
+        "installed": "Instalado",
+        "available": "Disponível"
+      },
+      "buttons": {
+        "configure": "Configurar",
+        "install": "Instalar"
+      },
+      "items": {
+        "boe": {
+          "name": "Ferramentas Boe",
+          "description": "Uma coleção de ferramentas para interagir com a API da Boe, incluindo gerenciamento de usuários e processamento de pedidos."
+        },
+        "search": {
+          "name": "Ferramenta de Busca na Internet",
+          "description": "Uma ferramenta poderosa para realizar buscas na web e obter informações atualizadas da internet."
+        }
+      }
+    }
+  },
+  "agentManagement": {
+    "header": {
+      "title": "Gerenciamento de Agentes",
+      "description": "Crie, configure e gerencie seus agentes de IA.",
+      "createAgent": "Criar Agente"
+    },
+    "searchPlaceholder": "Buscar agentes...",
+    "agentType": "Agente de IA",
+    "buttons": {
+      "configure": "Configurar"
+    },
+    "agents": {
+      "hermes": {
+        "description": "Olá, sou Hermes, encarregado das mensagens e de garantir que suas comunicações fluam sem interruções."
+      },
+      "boet": {
+        "description": "Sou Boet, seu especialista em vendas. Meu objetivo é identificar oportunidades e fechar negócios de forma eficiente."
+      },
+      "maui": {
+        "description": "De nada! Sou Maui, semideus do vento e do mar, pronto para realizar feitos incríveis para você."
+      }
+    }
+  },
+  "analytics": {
+    "title": "Análises",
+    "nav": {
+      "bots": "Bots",
+      "templates": "Modelos",
+      "general": "Geral",
+      "conversations": "Conversas",
+      "agents": "Agentes"
+    }
+  }
+}

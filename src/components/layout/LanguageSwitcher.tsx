@@ -10,13 +10,15 @@ import {
 import { USFlag } from '@/components/icons/flags/USFlag';
 import { ESFlag } from '@/components/icons/flags/ESFlag';
 import { DEFlag } from '@/components/icons/flags/DEFlag';
+import { BRFlag } from '@/components/icons/flags/BRFlag';
 
-type Language = 'en' | 'es' | 'de';
+type Language = 'en' | 'es' | 'de' | 'pt';
 
 const languageOptions: { value: Language; label: string; icon: React.ElementType }[] = [
   { value: 'en', label: 'English', icon: USFlag },
   { value: 'es', label: 'Español', icon: ESFlag },
   { value: 'de', label: 'Deutsch', icon: DEFlag },
+  { value: 'pt', label: 'Português', icon: BRFlag },
 ];
 
 export const LanguageSwitcher = () => {
