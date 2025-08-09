@@ -84,7 +84,7 @@
       "description": "Todas as suas conversas em um só lugar. Responda, resolva e colabore.",
       "newConversation": "Nova Conversa"
     },
-    "searchPlaceholder": "Buscar conversas...",
+    "searchPlaceholder": "Pesquisar conversas...",
     "tabs": {
       "all": "Todas",
       "unread": "Não lidas",
@@ -92,7 +92,8 @@
     },
     "board": {
       "noConversations": "Nenhuma conversa encontrada neste status.",
-      "messageCount": "mensagens"
+      "messageCount_one": "{{count}} mensagem",
+      "messageCount_other": "{{count}} mensagens"
     },
     "status": {
       "waiting": "Aguardando",
@@ -102,6 +103,33 @@
     },
     "details": {
       "title": "Detalhes da Conversa"
+    }
+  },
+  "conversationsView": {
+    "title": "Conversas",
+    "description": "Monitore e gerencie todas as conversas com clientes",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "newConversation": "Nova Conversa",
+    "searchPlaceholder": "Pesquisar conversas...",
+    "tabs": {
+      "threads": "Tópicos",
+      "board": "Quadro"
+    },
+    "board": {
+      "columns": {
+        "waiting": "Aguardando",
+        "bot_responding": "Bot respondendo",
+        "escalated": "Escalado",
+        "resolved": "Resolvido"
+      },
+      "noConversations": "Nenhuma conversa"
+    },
+    "card": {
+      "messagesSuffix": "msgs"
+    },
+    "details": {
+      "title": "Detalhes da conversa"
     }
   },
   "apisAndTools": {

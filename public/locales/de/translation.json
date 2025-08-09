@@ -231,11 +231,12 @@
       }
     }
   },
-  "conversations": {
+  "conversationsView": {
     "title": "Gespräche",
     "description": "Überwachen und verwalten Sie alle Kundengespräche",
     "filter": "Filter",
     "export": "Exportieren",
+    "newConversation": "Neues Gespräch",
     "searchPlaceholder": "Gespräche suchen...",
     "tabs": {
       "threads": "Threads",

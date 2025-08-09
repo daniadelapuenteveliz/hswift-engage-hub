@@ -45,6 +45,7 @@ export interface Conversation {
   id: string;
   contactName: string;
   contactPhone: string;
+  avatarUrl?: string;
   status: 'waiting' | 'bot_responding' | 'escalated' | 'resolved';
   lastMessage: string;
   lastActivity: string;
@@ -214,6 +215,97 @@ export const templates: Template[] = [
 
 // Mock Conversations
 export const mockConversations: Conversation[] = [
+  {
+    id: 'conv-1',
+    contactName: 'Elena Rodriguez',
+    contactPhone: '+34 655 123 456',
+    avatarUrl: 'https://i.pravatar.cc/150?u=elena',
+    status: 'waiting',
+    lastMessage: 'Hola, necesito ayuda con mi último pedido. No ha llegado todavía.',
+    lastActivity: 'hace 5m',
+    currentAgent: 'Sin asignar',
+    messages: 3,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-2',
+    contactName: 'John Smith',
+    contactPhone: '+44 7700 900123',
+    avatarUrl: 'https://i.pravatar.cc/150?u=john',
+    status: 'bot_responding',
+    lastMessage: 'Can I get a refund for my subscription?',
+    lastActivity: 'hace 12m',
+    currentAgent: 'SupportBot',
+    messages: 5,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-3',
+    contactName: 'Ana Silva',
+    contactPhone: '+55 11 98765-4321',
+    avatarUrl: 'https://i.pravatar.cc/150?u=ana',
+    status: 'escalated',
+    lastMessage: 'Preciso falar com um supervisor. O bot não está me ajudando.',
+    lastActivity: 'hace 30m',
+    currentAgent: 'Maria Garcia',
+    messages: 8,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-4',
+    contactName: 'Markus Weber',
+    contactPhone: '+49 176 12345678',
+    avatarUrl: 'https://i.pravatar.cc/150?u=markus',
+    status: 'resolved',
+    lastMessage: 'Vielen Dank für die schnelle Hilfe!',
+    lastActivity: 'hace 2h',
+    currentAgent: 'Klaus Müller',
+    messages: 4,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-5',
+    contactName: 'Sophia Dubois',
+    contactPhone: '+33 6 12 34 56 78',
+    avatarUrl: 'https://i.pravatar.cc/150?u=sophia',
+    status: 'waiting',
+    lastMessage: 'Bonjour, j\'ai une question sur la facturation.',
+    lastActivity: 'hace 1h',
+    currentAgent: 'Sin asignar',
+    messages: 2,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-6',
+    contactName: 'Liam O\'Connell',
+    contactPhone: '+353 87 123 4567',
+    avatarUrl: 'https://i.pravatar.cc/150?u=liam',
+    status: 'resolved',
+    lastMessage: 'That fixed it, thanks a million!',
+    lastActivity: 'hace 5h',
+    currentAgent: 'SupportBot',
+    messages: 6,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
+  {
+    id: 'conv-7',
+    contactName: 'Isabella Rossi',
+    contactPhone: '+39 333 1234567',
+    avatarUrl: 'https://i.pravatar.cc/150?u=isabella',
+    status: 'bot_responding',
+    lastMessage: 'Vorrei sapere lo stato della mia spedizione.',
+    lastActivity: 'hace 25m',
+    currentAgent: 'SupportBot',
+    messages: 4,
+    tenantId: '1',
+    phoneNumberId: '1'
+  },
   {
     id: '1',
     contactName: 'John Smith',

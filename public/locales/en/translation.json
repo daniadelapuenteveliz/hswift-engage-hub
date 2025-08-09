@@ -246,6 +246,33 @@
       "title": "Conversation Details"
     }
   },
+  "conversationsView": {
+    "title": "Conversations",
+    "description": "Monitor and manage all customer conversations",
+    "filter": "Filter",
+    "export": "Export",
+    "newConversation": "New Conversation",
+    "searchPlaceholder": "Search conversations...",
+    "tabs": {
+      "threads": "Threads",
+      "board": "Board"
+    },
+    "board": {
+      "columns": {
+        "waiting": "Waiting",
+        "bot_responding": "Bot Responding",
+        "escalated": "Escalated",
+        "resolved": "Resolved"
+      },
+      "noConversations": "No conversations"
+    },
+    "card": {
+      "messagesSuffix": "msgs"
+    },
+    "details": {
+      "title": "Conversation Details"
+    }
+  },
   "apisAndTools": {
     "header": {
       "title": "Connect, Automate, Succeed.",

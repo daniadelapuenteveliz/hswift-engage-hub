@@ -202,6 +202,8 @@
       }
     }
   },
+
+
   "conversations": {
     "header": {
       "title": "Bandeja de Entrada Unificada",
@@ -227,6 +229,33 @@
     },
     "details": {
       "title": "Detalles de la Conversación"
+    }
+  },
+  "conversationsView": {
+    "title": "Conversaciones",
+    "description": "Monitorea y gestiona todas las conversaciones con clientes",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "newConversation": "Nueva Conversación",
+    "searchPlaceholder": "Buscar conversaciones...",
+    "tabs": {
+      "threads": "Hilos",
+      "board": "Tablero"
+    },
+    "board": {
+      "columns": {
+        "waiting": "En espera",
+        "bot_responding": "Bot respondiendo",
+        "escalated": "Escalado",
+        "resolved": "Resuelto"
+      },
+      "noConversations": "No hay conversaciones"
+    },
+    "card": {
+      "messagesSuffix": "msjs"
+    },
+    "details": {
+      "title": "Detalles de la conversación"
     }
   },
   "apisAndTools": {
