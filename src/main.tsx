@@ -6,12 +6,12 @@ import './i18n';
 import { AuthProvider } from 'react-oidc-context';
 
 const cognitoAuthConfig = {
-  authority: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_g8y7bJldl",
-  client_id: "7phb51dgqg7rimgv9nbtgvprc8",
-  redirect_uri: "https://hswift.obsicore.com/dashboard",
-  response_type: "code",
-  post_logout_redirect_uri: "https://hswift.obsicore.com",
-  scope: "openid",
+  authority: import.meta.env.VITE_COGNITO_AUTHORITY,
+  client_id: import.meta.env.VITE_COGNITO_CLIENT_ID,
+  redirect_uri: import.meta.env.VITE_COGNITO_REDIRECT_URI,
+  response_type: import.meta.env.VITE_COGNITO_RESPONSE_TYPE,
+  post_logout_redirect_uri: import.meta.env.VITE_COGNITO_POST_LOGOUT_REDIRECT_URI,
+  scope: import.meta.env.VITE_COGNITO_SCOPE,
 };
 
 createRoot(document.getElementById("root")!).render(
