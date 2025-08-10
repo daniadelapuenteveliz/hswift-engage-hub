@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "react-oidc-context";
+import { User } from "@/hooks/useUser";
 import { AppLayout } from "@/components/layout/AppLayout";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -25,7 +25,7 @@ const queryClient = new QueryClient();
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading } = new User().getAuth();
   
   if (isLoading) {
     return (

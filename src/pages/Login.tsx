@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from 'react-oidc-context';
+import { User } from '@/hooks/useUser';
 import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const { t } = useTranslation();
-  const { isAuthenticated, isLoading, signinRedirect } = useAuth();
+  const { isAuthenticated, isLoading, signinRedirect } = new User().getAuth();
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {

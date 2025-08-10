@@ -1,9 +1,9 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
-import { useAuth } from "react-oidc-context";
+import { User } from '@/hooks/useUser';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
-import { LogOut, Settings, User } from "lucide-react";
+import { LogOut, Settings, User as UserIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,13 +21,14 @@ interface AppLayoutProps {
 
 export function AppLayout({ children }: AppLayoutProps) {
   const { t } = useTranslation();
-  const { user, signoutSilent } = useAuth();
+  const user = new User();
+  const auth = user.getAuth();
 
   const signoutRedirect = () => {
     const clientId = import.meta.env.VITE_COGNITO_CLIENT_ID;
     const logoutUri = import.meta.env.VITE_COGNITO_POST_LOGOUT_REDIRECT_URI;
     const cognitoDomain = import.meta.env.VITE_COGNITO_DOMAIN;
-    signoutSilent();
+    auth.signoutSilent();
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
@@ -45,7 +46,7 @@ export function AppLayout({ children }: AppLayoutProps) {
               <div className="text-lg font-semibold text-foreground">
                 {t('header.title')}
               </div>
-              {user && user.profile['custom:plan'] && <Badge variant="outline">{user.profile['custom:plan']}</Badge>}
+              {user && user.getPlan() && <Badge variant="outline">{user.getPlan()}</Badge>}
             </div>
             
             <div className="flex items-center gap-1">
@@ -55,15 +56,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="ghost" className="relative h-8 w-8 rounded-full flex items-center justify-center">
-                        <User className="h-5 w-5" />
+                        <UserIcon className="h-5 w-5" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56" align="end" forceMount>
                       <DropdownMenuLabel className="font-normal">
                         <div className="flex flex-col space-y-1">
-                          <p className="text-sm font-medium leading-none">{user.profile.name}</p>
+                          <p className="text-sm font-medium leading-none">{user.data.profile.name}</p>
                           <p className="text-xs leading-none text-muted-foreground">
-                            {user.profile.email}
+                            {user.data.profile.email}
                           </p>
                         </div>
                       </DropdownMenuLabel>

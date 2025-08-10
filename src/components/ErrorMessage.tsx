@@ -1,10 +1,9 @@
-import React from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useAuth } from 'react-oidc-context';
+import { User } from '@/hooks/useUser';
 
 const ErrorMessage = () => {
-  const auth = useAuth();
+  const auth = new User().getAuth();
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center p-8 max-w-md mx-auto bg-card border border-destructive/50 rounded-lg shadow-lg">
