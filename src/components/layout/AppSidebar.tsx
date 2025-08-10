@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "react-oidc-context";
 import {
   Sidebar,
   SidebarContent,
@@ -29,6 +30,7 @@ import { cn } from "@/lib/utils";
 
 export function AppSidebar() {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const { state } = useSidebar();
   const location = useLocation();
 
@@ -80,6 +82,25 @@ export function AppSidebar() {
     </SidebarMenu>
   );
 
+  const userPlan = user?.profile['custom:plan'] || 'free';
+
+  const planConfig = {
+    free: {
+      title: t('sidebar.freePlan.title'),
+      description: t('sidebar.freePlan.description'),
+    },
+    pro: {
+      title: t('sidebar.proPlan.title'),
+      description: t('sidebar.proPlan.description'),
+    },
+    premium: {
+      title: t('sidebar.premiumPlan.title'),
+      description: t('sidebar.premiumPlan.description'),
+    },
+  };
+
+  const currentPlan = planConfig[userPlan as keyof typeof planConfig] || planConfig.free;
+
   return (
     <Sidebar className="border-r border-sidebar-border transition-all duration-300">
       <SidebarHeader className="border-b border-sidebar-border ">
@@ -129,10 +150,10 @@ export function AppSidebar() {
               <div className="bg-sidebar-accent/30 rounded-lg p-4 m-2">
                 <div className="flex items-center gap-2 mb-2">
                   <Crown className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-sidebar-foreground">{t('sidebar.proPlan.title')}</span>
+                  <span className="text-sm font-medium text-sidebar-foreground">{currentPlan.title}</span>
                 </div>
                 <p className="text-xs text-sidebar-foreground/70">
-                  {t('sidebar.proPlan.description')}
+                  {currentPlan.description}
                 </p>
               </div>
             </SidebarGroupContent>

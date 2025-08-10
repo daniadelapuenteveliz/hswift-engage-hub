@@ -161,8 +161,16 @@
       "membership": "Membership"
     },
     "proPlan": {
-      "title": "Pro Plan",
-      "description": "Unlimited conversations and advanced analytics"
+      "title": "You are currently on Pro.",
+      "description": "Unlock the full potential with Premium."
+    },
+    "freePlan": {
+      "title": "Free Plan",
+      "description": "You are on the Free Plan. Upgrade to unlock more features."
+    },
+    "premiumPlan": {
+      "title": "Premium Plan.",
+      "description": "You are ready to unleash your full power."
     }
   },
   "usersAndRoles": {

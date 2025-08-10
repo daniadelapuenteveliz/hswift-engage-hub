@@ -160,8 +160,16 @@
       "membership": "Mitgliedschaft"
     },
     "proPlan": {
-      "title": "Pro Plan",
-      "description": "Unbegrenzte Gespräche und erweiterte Analysen"
+      "title": "Sie sind derzeit auf Pro.",
+      "description": "Schalten Sie das volle Potenzial mit Premium frei."
+    },
+    "freePlan": {
+      "title": "Kostenloser Plan",
+      "description": "Sie nutzen den kostenlosen Plan. Führen Sie ein Upgrade durch, um weitere Funktionen freizuschalten."
+    },
+    "premiumPlan": {
+      "title": "Premium-Plan.",
+      "description": "Sie sind bereit, Ihre volle Kraft zu entfesseln."
     }
   },
   "usersAndRoles": {

@@ -4,15 +4,34 @@
     "description": "Sua solução centralizada para interações com clientes."
   },
   "sidebar": {
-    "dashboard": "Painel",
-    "conversations": "Conversas",
-    "usersAndRoles": "Usuários e Funções",
-    "apisAndTools": "APIs e Ferramentas",
-    "agentManagement": "Gerenciamento de Agentes",
-    "analytics": "Análises",
-    "tenants": "Inquilinos",
-    "settings": "Configurações",
-    "logout": "Sair"
+    "header": {
+      "subtitle": "Engage Hub"
+    },
+    "mainNavigation": "Navegação Principal",
+    "xtretrNavigation": "Navegação Xtretr",
+    "nav": {
+      "dashboard": "Painel",
+      "templates": "Modelos",
+      "agentManagement": "Gerenciamento de Agentes",
+      "conversations": "Conversas",
+      "analytics": "Análises",
+      "tenants": "Inquilinos",
+      "usersAndRoles": "Usuários e Funções",
+      "apisAndTools": "APIs e Ferramentas",
+      "membership": "Assinatura"
+    },
+    "proPlan": {
+      "title": "Você está atualmente no Pro.",
+      "description": "Desbloqueie todo o potencial com o Premium."
+    },
+    "freePlan": {
+      "title": "Plano Gratuito",
+      "description": "Você está no Plano Gratuito. Atualize para desbloquear mais recursos."
+    },
+    "premiumPlan": {
+      "title": "Plano Premium.",
+      "description": "Você está pronto para liberar todo o seu poder."
+    }
   },
   "usersAndRoles": {
     "header": {

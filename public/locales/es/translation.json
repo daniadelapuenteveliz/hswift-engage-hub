@@ -65,21 +65,38 @@
           "name": "Gratis",
           "price": "$0",
           "description": "Perfecto para pequeñas empresas que están empezando",
-          "features": ["1 inquilino", "2 números de teléfono", "Analíticas básicas", "Soporte comunitario"],
+          "features": [
+            "1 inquilino",
+            "2 números de teléfono",
+            "Analíticas básicas",
+            "Soporte comunitario"
+          ],
           "popular": false
         },
         {
           "name": "Pro",
           "price": "$49",
           "description": "Funciones avanzadas para empresas en crecimiento",
-          "features": ["5 inquilinos", "Números de teléfono ilimitados", "Analíticas avanzadas", "Soporte prioritario", "Plantillas personalizadas"],
+          "features": [
+            "5 inquilinos",
+            "Números de teléfono ilimitados",
+            "Analíticas avanzadas",
+            "Soporte prioritario",
+            "Plantillas personalizadas"
+          ],
           "popular": true
         },
         {
           "name": "Premium",
           "price": "$99",
           "description": "Solución de nivel empresarial para grandes organizaciones",
-          "features": ["Inquilinos ilimitados", "Solución de marca blanca", "Integraciones personalizadas", "Soporte 24/7", "Garantía de SLA"],
+          "features": [
+            "Inquilinos ilimitados",
+            "Solución de marca blanca",
+            "Integraciones personalizadas",
+            "Soporte 24/7",
+            "Garantía de SLA"
+          ],
           "popular": false
         }
       ]
@@ -144,8 +161,16 @@
       "membership": "Membresía"
     },
     "proPlan": {
-      "title": "Plan Pro",
-      "description": "Conversaciones ilimitadas y análisis avanzados"
+      "title": "Actualmente estás en Pro.",
+      "description": "Desbloquea el potencial completo con Premium."
+    },
+    "freePlan": {
+      "title": "Plan Gratuito",
+      "description": "Estás en el Plan Gratuito. Actualiza para desbloquear más funciones."
+    },
+    "premiumPlan": {
+      "title": "Plan Premium.",
+      "description": "Ya estás listo para liberar todo tu potencial."
     }
   },
   "usersAndRoles": {
@@ -202,8 +227,6 @@
       }
     }
   },
-
-
   "conversations": {
     "header": {
       "title": "Bandeja de Entrada Unificada",
