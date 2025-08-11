@@ -51,6 +51,7 @@ export function AppSidebar() {
       { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
       { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
     ] : []),
+    { title: t('sidebar.nav.tenantConfig'), url: "/tenant-config", icon: Settings },
   ];
 
   const currentPath = location.pathname;

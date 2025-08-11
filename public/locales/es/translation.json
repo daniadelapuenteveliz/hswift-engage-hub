@@ -158,7 +158,8 @@
       "conversations": "Conversaciones",
       "usersAndRoles": "Usuarios y Roles",
       "analytics": "Análisis",
-      "membership": "Membresía"
+      "membership": "Membresía",
+      "tenantConfig": "Configuración del Inquilino"
     },
     "proPlan": {
       "title": "Actualmente estás en Pro.",
@@ -386,7 +387,6 @@
       "conversion": "Conversión:"
     },
     "templates": {
-      "title": "Análisis de Plantillas",
       "title": "Analíticas de Plantillas",
       "description": "Métricas de rendimiento para tus plantillas de mensajes.",
       "templateName": "Nombre de la Plantilla",

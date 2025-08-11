@@ -18,7 +18,8 @@
       "tenants": "Inquilinos",
       "usersAndRoles": "Usuários e Funções",
       "apisAndTools": "APIs e Ferramentas",
-      "membership": "Assinatura"
+      "membership": "Assinatura",
+      "tenantConfig": "Configuração do Inquilino"
     },
     "proPlan": {
       "title": "Você está atualmente no Pro.",

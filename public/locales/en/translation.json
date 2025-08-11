@@ -158,7 +158,8 @@
       "conversations": "Conversations",
       "usersAndRoles": "Users & Roles",
       "analytics": "Analytics",
-      "membership": "Membership"
+      "membership": "Membership",
+      "tenantConfig": "Tenant Config"
     },
     "proPlan": {
       "title": "You are currently on Pro.",

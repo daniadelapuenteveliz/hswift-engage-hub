@@ -20,6 +20,7 @@ import BoeIntegrationDetail from "./pages/BoeIntegrationDetail";
 import ToolSetConfiguration from "./pages/ToolSetConfiguration";
 import AgentConfiguration from "./pages/AgentConfiguration";
 import Analytics from "./pages/Analytics";
+import TenantConfig from "./pages/TenantConfig";
 
 const queryClient = new QueryClient();
 
@@ -135,6 +136,11 @@ const App = () => (
             <Route path="/membership" element={
               <ProtectedRoute>
                 <Membership />
+              </ProtectedRoute>
+            } />
+            <Route path="/tenant-config" element={
+              <ProtectedRoute>
+                <TenantConfig />
               </ProtectedRoute>
             } />
             <Route path="*" element={<NotFound />} />

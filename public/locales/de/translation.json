@@ -158,7 +158,8 @@
       "conversations": "Gespräche",
       "usersAndRoles": "Benutzer & Rollen",
       "analytics": "Analytik",
-      "membership": "Mitgliedschaft"
+      "membership": "Mitgliedschaft",
+      "tenantConfig": "Mandantenkonfiguration"
     },
     "proPlan": {
       "title": "Sie sind derzeit auf Pro.",
