@@ -24,6 +24,17 @@ import Analytics from "./pages/Analytics";
 const queryClient = new QueryClient();
 
 // Protected Route Component
+const PlanProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const user = new User();
+  const plan = user.getPlan();
+
+  if (plan === 'free') {
+    return <Navigate to="/membership" replace />;
+  }
+
+  return <>{children}</>;
+};
+
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, isLoading } = new User().getAuth();
   
@@ -66,27 +77,37 @@ const App = () => (
             } />
             <Route path="/conversations" element={
               <ProtectedRoute>
-                <Conversations />
+                <PlanProtectedRoute>
+                  <Conversations />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
             <Route path="/templates" element={
               <ProtectedRoute>
-                <Templates />
+                <PlanProtectedRoute>
+                  <Templates />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
             <Route path="/agent-management" element={
               <ProtectedRoute>
-                <AgentManagement />
+                <PlanProtectedRoute>
+                  <AgentManagement />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
-            <Route path="/apis-and-tools" element={
+            <Route path="/apis-and-tools" element={      
               <ProtectedRoute>
-                <ApisAndTools />
+                <PlanProtectedRoute>
+                  <ApisAndTools />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
-            <Route path="/apis-and-tools/api/:integrationName" element={
+            <Route path="/apis-and-tools/api/:integrationName" element={     
               <ProtectedRoute>
-                <BoeIntegrationDetail />
+                <PlanProtectedRoute>
+                  <BoeIntegrationDetail />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
             <Route path="/tools/:toolSetName" element={
@@ -106,7 +127,9 @@ const App = () => (
             } />
             <Route path="/analytics" element={
               <ProtectedRoute>
-                <Analytics />
+                <PlanProtectedRoute>
+                  <Analytics />
+                </PlanProtectedRoute>
               </ProtectedRoute>
             } />
             <Route path="/membership" element={

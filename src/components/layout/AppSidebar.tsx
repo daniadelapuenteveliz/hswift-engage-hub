@@ -34,19 +34,23 @@ export function AppSidebar() {
   const { state } = useSidebar();
   const location = useLocation();
 
+  const userPlan = user?.profile['custom:plan'] || 'free';
+
   const mainNavItems = [
+    { title: t('sidebar.nav.dashboard'), url: "/dashboard", icon: Home },
     { title: t('sidebar.nav.tenants'), url: "/tenants", icon: Building2 },
     { title: t('sidebar.nav.usersAndRoles'), url: "/users", icon: Users },
-    { title: t('sidebar.nav.apisAndTools'), url: "/apis-and-tools", icon: Wrench },
+    ...(userPlan !== 'free' ? [{ title: t('sidebar.nav.apisAndTools'), url: "/apis-and-tools", icon: Wrench }] : []),
     { title: t('sidebar.nav.membership'), url: "/membership", icon: Crown },
   ];
 
-  const xtretrNavItems = [
-    { title: t('sidebar.nav.dashboard'), url: "/dashboard", icon: Home },
-    { title: t('sidebar.nav.templates'), url: "/templates", icon: FileText },
-    { title: t('sidebar.nav.agentManagement'), url: "/agent-management", icon: Bot },
-    { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
-    { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
+  const secondNavItems = [
+    ...(userPlan !== 'free' ? [
+      { title: t('sidebar.nav.templates'), url: "/templates", icon: FileText },
+      { title: t('sidebar.nav.agentManagement'), url: "/agent-management", icon: Bot },
+      { title: t('sidebar.nav.conversations'), url: "/conversations", icon: MessageSquare },
+      { title: t('sidebar.nav.analytics'), url: "/analytics", icon: BarChart3 },
+    ] : []),
   ];
 
   const currentPath = location.pathname;
@@ -82,7 +86,7 @@ export function AppSidebar() {
     </SidebarMenu>
   );
 
-  const userPlan = user?.profile['custom:plan'] || 'free';
+
 
   const planConfig = {
     free: {
@@ -137,10 +141,10 @@ export function AppSidebar() {
             "text-sidebar-foreground/60 uppercase text-xs font-semibold tracking-wider my-2",
             collapsed && "sr-only"
           )}>
-            {t('sidebar.xtretrNavigation')}
+            {t('sidebar.secondNavigation')}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            {renderNavItems(xtretrNavItems)}
+            {renderNavItems(secondNavItems)}
           </SidebarGroupContent>
         </SidebarGroup>
 

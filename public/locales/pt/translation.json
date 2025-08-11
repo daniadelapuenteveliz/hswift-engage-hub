@@ -8,7 +8,7 @@
       "subtitle": "Engage Hub"
     },
     "mainNavigation": "Navegação Principal",
-    "xtretrNavigation": "Navegação Xtretr",
+    "secondNavigation": "Navegação de Inquilinos",
     "nav": {
       "dashboard": "Painel",
       "templates": "Modelos",

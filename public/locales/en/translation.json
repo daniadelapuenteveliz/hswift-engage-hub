@@ -148,7 +148,7 @@
       "subtitle": "Conversational Platform"
     },
     "mainNavigation": "Main Navigation",
-    "xtretrNavigation": "XTRETR",
+    "secondNavigation": "Tenant Navigation",
     "nav": {
       "dashboard": "Dashboard",
       "tenants": "Tenants",

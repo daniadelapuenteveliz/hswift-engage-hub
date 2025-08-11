@@ -148,7 +148,7 @@
       "subtitle": "Plataforma Conversacional"
     },
     "mainNavigation": "Navegación Principal",
-    "xtretrNavigation": "XTRETR",
+    "secondNavigation": "Navegación de Inquilinos",
     "nav": {
       "dashboard": "Panel de Control",
       "tenants": "Inquilinos",

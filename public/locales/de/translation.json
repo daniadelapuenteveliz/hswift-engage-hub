@@ -148,6 +148,7 @@
       "subtitle": "Konversationsplattform"
     },
     "mainNavigation": "Hauptnavigation",
+    "secondNavigation": "Mandantennavigation",
     "nav": {
       "dashboard": "Dashboard",
       "tenants": "Mandanten",
