@@ -407,21 +407,21 @@
     }
   },
   "membership": {
-    "title": "Mitgliedschaft & Abrechnung",
-    "subtitle": "Verwalten Sie Ihr Abonnement, sehen Sie Rechnungen ein und verfolgen Sie Ihre Nutzung.",
-    "currentPlan": {
-      "title": "Aktueller Plan",
-      "description": "Sie nutzen derzeit den Pro-Plan.",
-      "upgrade": "Plan upgraden",
-      "perMonth": "/Monat",
-      "planDetails": "Ihr Plan beinhaltet unbegrenzte Agenten, {{count, number}} monatliche Gespräche und Premium-Support.",
-      "conversationsUsed": "Genutzte Gespräche"
-    },
-    "monthlySpending": {
-      "title": "Monatliche Ausgaben",
-      "description": "Ihre Ausgabenübersicht für die letzten 6 Monate."
-    },
-    "billingHistory": {
+      "title": "Mitgliedschaft & Abrechnung",
+      "subtitle": "Verwalten Sie Ihr Abonnement, sehen Sie Rechnungen ein und verfolgen Sie Ihre Nutzung.",
+      "currentPlan": {
+        "title": "Aktueller Plan",
+        "description": "Sie nutzen derzeit den {{planName}} Plan.",
+        "upgrade": "Plan upgraden",
+        "perMonth": "/Monat",
+        "planDetails": "Ihr Plan beinhaltet unbegrenzte Agenten, {{count, number}} monatliche Gespräche und Premium-Support.",
+        "conversationsUsed": "Genutzte Gespräche"
+      },
+      "monthlySpending": {
+        "title": "Monatliche Ausgaben",
+        "description": "Ihre Ausgabenübersicht für die letzten 12 Monate."
+      },
+      "billingHistory": {
       "title": "Abrechnungsverlauf",
       "description": "Sehen und laden Sie Ihre vergangenen Rechnungen herunter.",
       "table": {

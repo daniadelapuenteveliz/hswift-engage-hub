@@ -34,6 +34,48 @@
       "description": "Você está pronto para liberar todo o seu poder."
     }
   },
+  "membership": {
+    "title": "Assinatura e Faturamento",
+    "subtitle": "Gerencie sua assinatura, veja faturas e acompanhe seu uso.",
+    "currentPlan": {
+      "title": "Plano Atual",
+      "description": "Você está atualmente no Plano {{planName}}.",
+      "upgrade": "Atualizar Plano",
+      "perMonth": "/mês",
+      "planDetails": "Seu plano inclui agentes ilimitados, {{count, number}} conversas mensais e suporte premium.",
+      "conversationsUsed": "Conversas Usadas"
+    },
+    "monthlySpending": {
+      "title": "Gastos Mensais",
+      "description": "Sua visão geral de gastos dos últimos 12 meses."
+    },
+    "billingHistory": {
+      "title": "Histórico de Faturamento",
+      "description": "Veja e baixe suas faturas anteriores.",
+      "table": {
+        "invoice": "Fatura",
+        "date": "Data",
+        "amount": "Valor",
+        "status": "Status",
+        "action": "Ação"
+      },
+      "status": {
+        "paid": "Pago"
+      }
+    },
+    "billingDetails": {
+      "title": "Detalhes de Faturamento",
+      "nextBillingDate": "Próxima Data de Faturamento",
+      "paymentMethod": "Método de Pagamento",
+      "cardEnding": "Visa terminado em {{last4}}",
+      "managePayment": "Gerenciar Método de Pagamento"
+    },
+    "needHelp": {
+      "title": "Precisa de Ajuda?",
+      "description": "Nossa equipe está aqui para ajudar com qualquer dúvida sobre seu plano ou faturamento.",
+      "contact": "Contatar um Executivo"
+    }
+  },
   "usersAndRoles": {
     "header": {
       "title": "Usuários e Funções",

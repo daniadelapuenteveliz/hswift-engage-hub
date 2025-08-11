@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -6,41 +7,30 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import { BarChart, Bar, XAxis, YAxis } from "recharts";
 import { Progress } from "@/components/ui/progress";
 import { useTranslation } from "react-i18next";
-import { Crown, ArrowRight, Download, CreditCard, LifeBuoy } from "lucide-react";
+import { useAuth } from "react-oidc-context";
+import { ArrowRight, Download, CreditCard, LifeBuoy } from "lucide-react";
 
-const oldChartData = [ // to be removed
-  { month: "January", amount: 186 },
-  { month: "February", amount: 205 },
-  { month: "March", amount: 237 },
-  { month: "April", amount: 173 },
-  { month: "May", amount: 209 },
-  { month: "June", amount: 254 },
-];
-
-const oldBillingHistory = [ // to be removed
-  { invoice: "INV-2024-006", date: "June 1, 2024", amount: "$254.00", status: "Paid" },
-  { invoice: "INV-2024-005", date: "May 1, 2024", amount: "$209.00", status: "Paid" },
-  { invoice: "INV-2024-004", date: "April 1, 2024", amount: "$173.00", status: "Paid" },
-  { invoice: "INV-2024-003", date: "March 1, 2024", amount: "$237.00", status: "Paid" },
-];
-
-const Membership = () => {
+const Membership: React.FC = () => {
   const { t } = useTranslation();
+  const { user } = useAuth();
 
   const chartData = [
-    { month: t('months.january'), amount: 186 },
-    { month: t('months.february'), amount: 205 },
-    { month: t('months.march'), amount: 237 },
-    { month: t('months.april'), amount: 173 },
-    { month: t('months.may'), amount: 209 },
-    { month: t('months.june'), amount: 254 },
+    { month: t('months.january'), amount: 0 },
+    { month: t('months.february'), amount: 0 },
+    { month: t('months.march'), amount: 0 },
+    { month: t('months.april'), amount: 0 },
+    { month: t('months.may'), amount: 0 },
+    { month: t('months.june'), amount: 0 },
+    { month: t('months.july'), amount: 0 },
+    { month: t('months.august'), amount: 0 },
+    { month: t('months.september'), amount: 0 },
+    { month: t('months.october'), amount: 0 },
+    { month: t('months.november'), amount: 0 },
+    { month: t('months.december'), amount: 0 },
   ];
 
   const billingHistory = [
-    { invoice: "INV-2024-006", date: "June 1, 2024", amount: "$254.00", status: t('membership.billingHistory.status.paid') },
-    { invoice: "INV-2024-005", date: "May 1, 2024", amount: "$209.00", status: t('membership.billingHistory.status.paid') },
-    { invoice: "INV-2024-004", date: "April 1, 2024", amount: "$173.00", status: t('membership.billingHistory.status.paid') },
-    { invoice: "INV-2024-003", date: "March 1, 2024", amount: "$237.00", status: t('membership.billingHistory.status.paid') },
+    //{ invoice: "INV-2024-006", date: "June 1, 2024", amount: "$254.00", status: t('membership.billingHistory.status.paid') },
   ];
   return (
     <div className="p-6 sm:p-8 bg-muted/40 min-h-full">
@@ -57,22 +47,22 @@ const Membership = () => {
               <CardHeader className="flex flex-row items-center justify-between">
                 <div>
                   <CardTitle className="text-xl">{t('membership.currentPlan.title')}</CardTitle>
-                  <CardDescription>{t('membership.currentPlan.description')}</CardDescription>
+                  <CardDescription>{t('membership.currentPlan.description', { planName: user?.profile['custom:plan'] || '...' })}</CardDescription>
                 </div>
                 <Button>{t('membership.currentPlan.upgrade')} <ArrowRight className="w-4 h-4 ml-2" /></Button>
               </CardHeader>
               <CardContent>
                 <div className="flex items-baseline">
-                  <span className="text-4xl font-bold">$99</span>
+                  <span className="text-4xl font-bold">$yy</span>
                   <span className="text-muted-foreground">{t('membership.currentPlan.perMonth')}</span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">{t('membership.currentPlan.planDetails', { count: 10000 })}</p>
+                <p className="text-sm text-muted-foreground mt-2">{t('membership.currentPlan.planDetails', { count: 0 })}</p>
                 <div className="mt-4">
                   <div className="flex justify-between text-sm mb-1">
                     <span className="text-muted-foreground">{t('membership.currentPlan.conversationsUsed')}</span>
-                    <span>7,849 / 10,000</span>
+                    <span>0 / xxxx</span>
                   </div>
-                  <Progress value={78.49} />
+                  <Progress value={0} />
                 </div>
               </CardContent>
             </Card>
@@ -138,19 +128,19 @@ const Membership = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm font-medium">{t('membership.billingDetails.nextBillingDate')}</p>
-                    <p className="text-muted-foreground">July 1, 2025</p>
+                    <p className="text-muted-foreground">N/A</p>
                   </div>
                   <div>
                     <p className="text-sm font-medium">{t('membership.billingDetails.paymentMethod')}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <CreditCard className="w-5 h-5 text-muted-foreground" />
-                      <span className="text-muted-foreground">{t('membership.billingDetails.cardEnding', { last4: 4242 })}</span>
+                      <span className="text-muted-foreground">N/A</span>
                     </div>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" className="w-full">{t('membership.billingDetails.managePayment')}</Button>
+                <Button variant="outline" className="w-full" disabled>{t('membership.billingDetails.managePayment')}</Button>
               </CardFooter>
             </Card>
 
@@ -165,7 +155,7 @@ const Membership = () => {
                 <p className="text-muted-foreground">{t('membership.needHelp.description')}</p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">{t('membership.needHelp.contact')}</Button>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled>{t('membership.needHelp.contact')}</Button>
               </CardFooter>
             </Card>
           </div>

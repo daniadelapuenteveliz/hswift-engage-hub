@@ -426,7 +426,7 @@
     "subtitle": "Manage your subscription, view invoices, and track your usage.",
     "currentPlan": {
       "title": "Current Plan",
-      "description": "You are currently on the Pro Plan.",
+      "description": "You are currently on the {{planName}} Plan.",
       "upgrade": "Upgrade Plan",
       "perMonth": "/month",
       "planDetails": "Your plan includes unlimited agents, {{count, number}} monthly conversations, and premium support.",
@@ -434,7 +434,7 @@
     },
     "monthlySpending": {
       "title": "Monthly Spending",
-      "description": "Your spending overview for the last 6 months."
+      "description": "Your spending overview for the last 12 months."
     },
     "billingHistory": {
       "title": "Billing History",

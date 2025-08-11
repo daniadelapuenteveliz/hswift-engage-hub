@@ -426,7 +426,7 @@
     "subtitle": "Gestiona tu suscripción, ve facturas y sigue tu uso.",
     "currentPlan": {
       "title": "Plan Actual",
-      "description": "Actualmente estás en el Plan Pro.",
+      "description": "Actualmente estás en el Plan {{planName}}.",
       "upgrade": "Mejorar Plan",
       "perMonth": "/mes",
       "planDetails": "Tu plan incluye agentes ilimitados, {{count, number}} conversaciones mensuales y soporte premium.",
@@ -434,7 +434,7 @@
     },
     "monthlySpending": {
       "title": "Gasto Mensual",
-      "description": "Tu resumen de gastos de los últimos 6 meses."
+      "description": "Tu resumen de gastos de los últimos 12 meses."
     },
     "billingHistory": {
       "title": "Historial de Facturación",
