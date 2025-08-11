@@ -152,15 +152,17 @@ export function AppSidebar() {
         {!collapsed && (
           <SidebarGroup className="mt-auto">
             <SidebarGroupContent>
-              <div className="bg-sidebar-accent/30 rounded-lg p-4 m-2">
-                <div className="flex items-center gap-2 mb-2">
-                  <Crown className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-sidebar-foreground">{currentPlan.title}</span>
+              <NavLink to="/membership" className="block m-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <div className="bg-sidebar-accent/30 hover:bg-sidebar-accent/50 transition-colors duration-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Crown className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium text-sidebar-foreground">{currentPlan.title}</span>
+                  </div>
+                  <p className="text-xs text-sidebar-foreground/70">
+                    {currentPlan.description}
+                  </p>
                 </div>
-                <p className="text-xs text-sidebar-foreground/70">
-                  {currentPlan.description}
-                </p>
-              </div>
+              </NavLink>
             </SidebarGroupContent>
           </SidebarGroup>
         )}
